@@ -1,0 +1,21 @@
+{
+  "name": "vue-dynamic-form-schema",
+  "version": "0.5.0",
+  "description": "A form generator that accepts a JSON schema to display a A11Y first form.",
+  "main": "./src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/lucamamprin/vue-dynamic-form-schema"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Luca Mamprin",
+  "license": "ISC",
+  "dependencies": {
+    "vuelidate": "^0.7.5"
+  },
+  "devDependencies": {
+    "vue-template-compiler": "^2.6.12"
+  }
+}
