@@ -13,7 +13,7 @@
   "author": "Luca Mamprin",
   "license": "ISC",
   "dependencies": {
-    "vuelidate": "^0.7.5"
+    "vuelidate": "^0.7.6"
   },
   "devDependencies": {
     "vue-template-compiler": "^2.6.12"
