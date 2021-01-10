@@ -41,10 +41,10 @@
 </template>
 
 <script>
-const ErrorMessage = () => import('./Atoms/ErrorMessage')
+const ErrorMessage = () => import("./Atoms/ErrorMessage")
 
 export default {
-  name: 'InputCheckbox',
+  name: "InputCheckbox",
   inheritAttrs: false,
   components: {
     ErrorMessage,

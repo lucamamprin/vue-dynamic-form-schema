@@ -65,18 +65,18 @@
 <script>
 import removeStar from "../../utilities/removeStar"
 
-const MaxLength = () => import('./Atoms/MaxLength')
-const ErrorMessage = () => import('./Atoms/ErrorMessage')
+const MaxLength = () => import("./Atoms/MaxLength")
+const ErrorMessage = () => import("./Atoms/ErrorMessage")
 
 export default {
-  name: 'InputTextarea',
-  data() {
+  name: "InputTextarea",
+  data () {
     return {
-      typedText: '',
-      inputHeight: '0',
+      typedText: "",
+      inputHeight: "0",
       shadowStyles: {
         maxHeight: 0,
-        pointerEvents: 'none',
+        pointerEvents: "none",
         opacity: 0,
         margin: 0,
         padding: 0,
@@ -122,7 +122,7 @@ export default {
       required: true,
     },
     value: {
-      type: [String, Number],
+      type: [String, Number,],
     },
     name: {
       type: String,
@@ -157,7 +157,7 @@ export default {
     },
     placeholderText: {
       type: String,
-      default: ' ',
+      default: " ",
     },
     invalid: {
       type: Boolean,
@@ -172,32 +172,32 @@ export default {
     },
   },
   computed: {
-    inputStyle() {
+    inputStyle () {
       if (!this.resizeTextArea) {
         return
       }
 
       return {
-        'min-height': this.inputHeight,
-        overflow: 'hidden',
+        "min-height": this.inputHeight,
+        overflow: "hidden",
       }
     },
-    hasCharacterCount() {
+    hasCharacterCount () {
       return this.maxLength && this.showCharacterCount
     },
-    maxLengthDescribedBy() {
-      return this.hasCharacterCount ? `${this.id}-counter` : ''
+    maxLengthDescribedBy () {
+      return this.hasCharacterCount ? `${this.id}-counter` : ""
     },
   },
   methods: {
-    onType($event) {
+    onType ($event) {
       const value = $event.target.value
 
-      this.$emit('input', value)
+      this.$emit("input", value)
       this.typedText = value
       this.resize()
     },
-    resize() {
+    resize () {
       // Credits to https://www.scottstadt.com/2019/06/03/vue-autosize-textarea.html
       if (!this.resizeTextArea) {
         return
@@ -206,7 +206,7 @@ export default {
       this.inputHeight = `${this.$refs.shadow.scrollHeight}px`
     },
   },
-  mounted() {
+  mounted () {
     this.resize()
   },
 }

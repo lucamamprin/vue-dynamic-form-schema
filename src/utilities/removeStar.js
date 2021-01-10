@@ -3,14 +3,12 @@
 
 export default {
     methods: {
-        removeStar(string) {
-            const containsStar = string.includes('*')
-
-            console.log('containsStar', containsStar)
+        removeStar (string) {
+            const containsStar = string.includes("*")
 
             if (containsStar) {
                 // convert to HTML object to get its text and remove the star
-                let htmlObj = document.createElement('div');
+                let htmlObj = document.createElement("div")
                 htmlObj.innerHTML = string
 
                 return htmlObj.innerText.slice(0, -1)

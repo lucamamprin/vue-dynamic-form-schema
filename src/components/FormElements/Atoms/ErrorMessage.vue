@@ -12,11 +12,11 @@
 export default {
   computed: {
     positionClass () {
-      return this.position.length ? `position-${this.position}` : ''
+      return this.position.length ? `position-${this.position}` : ""
     },
     inlineClasses () {
-      return this.inlineError ? 'ml-1' : ''
-    }
+      return this.inlineError ? "ml-1" : ""
+    },
   },
   props: {
     errorMessage: String,
@@ -27,16 +27,16 @@ export default {
     // should the error be displayed with a left margin rather than a top margin?
     inlineError: {
       type: Boolean,
-      default: false
+      default: false,
     },
     position: {
       type: String,
-      default: ''
+      default: "",
     },
     display: {
       type: String,
-      default: 'inline-block'
-    }
-  }
+      default: "inline-block",
+    },
+  },
 }
 </script>

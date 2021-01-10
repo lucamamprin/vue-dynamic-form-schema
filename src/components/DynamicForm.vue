@@ -30,16 +30,16 @@
 </template>
 
 <script>
-import {validationRules} from '../parsers/ValidationParser'
+import {validationRules} from "../parsers/ValidationParser"
 
-const InputGeneric = () => import('./FormElements/InputGeneric')
-const InputTextarea = () => import('./FormElements/InputTextarea')
-const InputSelect = () => import('./FormElements/InputSelect')
-const InputRadioGroup = () => import('./FormElements/InputRadioGroup')
-const InputCheckbox = () => import('./FormElements/InputCheckbox')
+const InputGeneric = () => import("./FormElements/InputGeneric")
+const InputTextarea = () => import("./FormElements/InputTextarea")
+const InputSelect = () => import("./FormElements/InputSelect")
+const InputRadioGroup = () => import("./FormElements/InputRadioGroup")
+const InputCheckbox = () => import("./FormElements/InputCheckbox")
 
 export default {
-  name: 'DynamicForm',
+  name: "DynamicForm",
   props: {
     schema: {type: Object, required: true},
     value: {type: Object, required: true},
@@ -58,11 +58,11 @@ export default {
       default: false,
     },
     initialValue: {
-      type: [String, Boolean],
+      type: [String, Boolean,],
       default: null,
     },
   },
-  data() {
+  data () {
     return {
       form: {},
     }
@@ -75,10 +75,10 @@ export default {
     InputCheckbox,
   },
   computed: {
-    firstFormElement() {
+    firstFormElement () {
       return Object.keys(this.schema)[0]
     },
-    errorMessages() {
+    errorMessages () {
       const validations = this.$v.form
 
       return Object.keys(this.schema).reduce((messages, key) => {
@@ -94,12 +94,12 @@ export default {
           const message = rules[rule].message
           const params = rules[rule].params
 
-          messages[key] = message.replace('{' + rule + '}', params)
+          messages[key] = message.replace("{" + rule + "}", params)
 
-          if (rule === 'isBetween') {
+          if (rule === "isBetween") {
             messages[key] = message
-                .replace('{min}', params[0])
-                .replace('{max}', params[1])
+                .replace("{min}", params[0])
+                .replace("{max}", params[1])
           }
 
           return messages
@@ -110,35 +110,35 @@ export default {
     },
   },
   methods: {
-    getComponent(type) {
+    getComponent (type) {
       let component
       switch (type) {
-        case 'textarea':
-          component = 'InputTextarea'
+        case "textarea":
+          component = "InputTextarea"
           break
-        case 'select':
-          component = 'InputSelect'
+        case "select":
+          component = "InputSelect"
           break
-        case 'radio_group':
-          component = 'InputRadioGroup'
+        case "radio_group":
+          component = "InputRadioGroup"
           break
-        case 'checkbox':
-          component = 'InputCheckbox'
+        case "checkbox":
+          component = "InputCheckbox"
           break
         default:
-          component = 'InputGeneric'
+          component = "InputGeneric"
       }
 
       return component
     },
-    getIsRequired(field) {
-      return field.validations.hasOwnProperty('required')
-          || field.validations.hasOwnProperty('isChecked')
+    getIsRequired (field) {
+      return Object.prototype.hasOwnProperty.call(field.validations, "required")
+          || Object.prototype.hasOwnProperty.call(field.validations, "isChecked")
     },
-    generateUniqueIdFromNameSpace(field, name, isError = false) {
+    generateUniqueIdFromNameSpace (field, name, isError = false) {
       return isError ? `${this.nameSpace}-${name}-error` : `${this.nameSpace}-${name}`
     },
-    getLabel(field) {
+    getLabel (field) {
       // add an asterisk in case of required field
       // wrap the asterisk with a span of aria-hidden=true
       // this prevents screen readers from reading "star" or "asterisk"
@@ -148,50 +148,50 @@ export default {
           `${field.label}<span aria-hidden="true">*</span>`
           : field.label
     },
-    getValue(type, value, key) {
+    getValue (type, value, key) {
       // checkboxes handle values differently from the other inputs
-      return type === 'checkbox' ? this.schema[key].value : value[key]
+      return type === "checkbox" ? this.schema[key].value : value[key]
     },
-    getShowCharacterCount(field) {
-      return typeof field.showCharacterCount === 'undefined' ? true : field.showCharacterCount
+    getShowCharacterCount (field) {
+      return typeof field.showCharacterCount === "undefined" ? true : field.showCharacterCount
     },
-    validationParam(prop, defaultValue) {
-      return typeof prop !== 'undefined' ? prop.params : defaultValue
+    validationParam (prop, defaultValue) {
+      return typeof prop !== "undefined" ? prop.params : defaultValue
     },
-    update(key, value) {
+    update (key, value) {
       this.form[key] = value
       this.$v.form[key].$touch()
 
-      this.$emit('input', {
+      this.$emit("input", {
         ...this.value,
         [key]: value,
       })
     },
     // used externally
-    validate() {
+    validate () {
       this.$v.$touch()
       this.announceStatus()
     },
     // used externally
-    getAllErrors() {
+    getAllErrors () {
       return this.errorMessages
     },
-    announceStatus() {
-      this.$emit('status', {
+    announceStatus () {
+      this.$emit("status", {
         invalid: this.$v.$invalid,
       })
     },
   },
-  validations() {
+  validations () {
     return {form: validationRules(this.schema)}
   },
-  created() {
+  created () {
     for (const name in this.schema) {
       this.$set(this.form, name, this.initialValue)
     }
   },
-  mounted() {
-    this.$emit('mounted', this.form)
+  mounted () {
+    this.$emit("mounted", this.form)
   },
 }
 </script>

@@ -51,16 +51,16 @@
 </template>
 
 <script>
-const ErrorMessage = () => import('./Atoms/ErrorMessage')
+const ErrorMessage = () => import("./Atoms/ErrorMessage")
 
 export default {
-  name: 'InputRadioGroup',
+  name: "InputRadioGroup",
   inheritAttrs: false,
   components: {
     ErrorMessage,
   },
   methods: {
-    getId(idx, isLabel = false) {
+    getId (idx, isLabel = false) {
       const id = `${this.id}-${idx}`
 
       return isLabel ? `label-${id}` : id
@@ -98,10 +98,10 @@ export default {
     options: {
       type: Array,
       required: true,
-      validator(opts) {
+      validator (opts) {
         return (
             opts.find(opt => {
-              return !('label' in opt) || !('value' in opt)
+              return !("label" in opt) || !("value" in opt)
             }) === undefined
         )
       },

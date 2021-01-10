@@ -60,18 +60,18 @@
 
 <script>
 import removeStar from "../../utilities/removeStar"
-const MaxLength = () => import('./Atoms/MaxLength')
-const ErrorMessage = () => import('./Atoms/ErrorMessage')
+const MaxLength = () => import("./Atoms/MaxLength")
+const ErrorMessage = () => import("./Atoms/ErrorMessage")
 
 export default {
-  name: 'InputGeneric',
+  name: "InputGeneric",
   inheritAttrs: false,
   mixins: [
       removeStar,
   ],
   components: {
     MaxLength,
-    ErrorMessage
+    ErrorMessage,
   },
   computed: {
     hasLeftColSlot () {
@@ -81,7 +81,7 @@ export default {
       return this.maxLength && this.showCharacterCount
     },
     maxLengthDescribedBy () {
-      return this.hasCharacterCount ? `${this.id}-counter` : ''
+      return this.hasCharacterCount ? `${this.id}-counter` : ""
     },
   },
   props: {
@@ -98,7 +98,7 @@ export default {
       required: true,
     },
     value: {
-      type: [String, Number]
+      type: [String, Number,],
     },
     disabled: {
       type: Boolean,
@@ -106,61 +106,61 @@ export default {
     },
     name: {
       type: String,
-      required: true
+      required: true,
     },
     label: {
       type: String,
-      required: true
+      required: true,
     },
     error: {
       type: String,
-      required: false
+      required: false,
     },
     hasError: {
       type: Boolean,
-      default: false
+      default: false,
     },
     min: {
       type: null,
-      default: 0
+      default: 0,
     },
     max: {
-      type: null
+      type: null,
     },
     minLength: {
       type: Number,
-      default: 0
+      default: 0,
     },
     maxLength: {
-      type: Number
+      type: Number,
     },
     showCharacterCount: {
       type: Boolean,
-      default: true
+      default: true,
     },
     resetMarginTop: {
       type: Boolean,
-      default: false
+      default: false,
     },
     darkMode: {
       type: Boolean,
-      default: false
+      default: false,
     },
     placeholderText: {
       type: String,
-      default: ' '
+      default: " ",
     },
     invalid: {
       type: Boolean,
     },
     required: {
       type: Boolean,
-      default: false
+      default: false,
     },
     uppercase: {
       type: Boolean,
-      default: false
+      default: false,
     },
-  }
+  },
 }
 </script>

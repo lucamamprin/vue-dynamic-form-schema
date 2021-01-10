@@ -47,26 +47,26 @@
 </template>
 
 <script>
-const ErrorMessage = () => import('./Atoms/ErrorMessage')
+const ErrorMessage = () => import("./Atoms/ErrorMessage")
 
 export default {
   components: {
-    ErrorMessage
+    ErrorMessage,
   },
   props: {
     firstValue: {
       type: String,
-      default: ''
+      default: "",
     },
     value: {
-      type: [String, Number, Object]
+      type: [String, Number, Object,],
     },
     name: {
       type: String,
-      required: true
+      required: true,
     },
     label: {
-      type: String
+      type: String,
     },
     disabled: {
       type: Boolean,
@@ -78,16 +78,16 @@ export default {
       validator (opts) {
         return (
           opts.find(opt => {
-            return !('label' in opt) || !('value' in opt)
+            return !("label" in opt) || !("value" in opt)
           }) === undefined
         )
-      }
+      },
     },
     hasError: { type: Boolean, default: false },
     error: { type: String, required: false },
     darkMode: {
       type: Boolean,
-      default: false
+      default: false,
     },
     invalid: {
       type: Boolean,
@@ -98,7 +98,7 @@ export default {
     },
     resetMarginTop: {
       type: Boolean,
-      default: false
+      default: false,
     },
     id: {
       type: String,
@@ -111,8 +111,8 @@ export default {
   },
   data () {
     return {
-      val: null
+      val: null,
     }
-  }
+  },
 }
 </script>
