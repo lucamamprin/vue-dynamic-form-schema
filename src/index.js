@@ -59,7 +59,8 @@ export default {
         // gets status and error messages, reverses the array and finds the first input within the form to focus on.
         focusOnFirstForm (statusObj, errorMessages) {
           // reverse the object to prevent scrolling to the last DynamicForm instance
-          const reverseObj = obj => Object.assign([], obj).reverse()
+          const reverseObj = obj => Object.assign([
+          ], obj).reverse()
 
           for (const status in reverseObj(statusObj)) {
             if (statusObj[status].invalid) {

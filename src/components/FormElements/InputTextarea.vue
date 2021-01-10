@@ -122,7 +122,9 @@ export default {
       required: true,
     },
     value: {
-      type: [String, Number,],
+      type: [
+        String, Number,
+      ],
     },
     name: {
       type: String,

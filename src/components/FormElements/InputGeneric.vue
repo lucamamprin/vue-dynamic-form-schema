@@ -67,7 +67,7 @@ export default {
   name: "InputGeneric",
   inheritAttrs: false,
   mixins: [
-      removeStar,
+    removeStar,
   ],
   components: {
     MaxLength,
@@ -98,7 +98,9 @@ export default {
       required: true,
     },
     value: {
-      type: [String, Number,],
+      type: [
+        String, Number,
+      ],
     },
     disabled: {
       type: Boolean,

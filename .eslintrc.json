@@ -9,6 +9,8 @@
       "arrays": "always",
       "objects": "always-multiline",
       "functions": "never"
-    }]
+    }],
+    "array-bracket-newline": ["error", "always"],
+    "indent": [2, 2]
   }
 }

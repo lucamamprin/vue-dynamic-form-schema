@@ -58,7 +58,9 @@ export default {
       default: false,
     },
     initialValue: {
-      type: [String, Boolean,],
+      type: [
+        String, Boolean,
+      ],
       default: null,
     },
   },
@@ -98,8 +100,8 @@ export default {
 
           if (rule === "isBetween") {
             messages[key] = message
-                .replace("{min}", params[0])
-                .replace("{max}", params[1])
+              .replace("{min}", params[0])
+              .replace("{max}", params[1])
           }
 
           return messages
@@ -113,20 +115,20 @@ export default {
     getComponent (type) {
       let component
       switch (type) {
-        case "textarea":
-          component = "InputTextarea"
-          break
-        case "select":
-          component = "InputSelect"
-          break
-        case "radio_group":
-          component = "InputRadioGroup"
-          break
-        case "checkbox":
-          component = "InputCheckbox"
-          break
-        default:
-          component = "InputGeneric"
+      case "textarea":
+        component = "InputTextarea"
+        break
+      case "select":
+        component = "InputSelect"
+        break
+      case "radio_group":
+        component = "InputRadioGroup"
+        break
+      case "checkbox":
+        component = "InputCheckbox"
+        break
+      default:
+        component = "InputGeneric"
       }
 
       return component
@@ -145,8 +147,8 @@ export default {
       // all screen readers will announce if a field is required thanks to the other attrs
 
       return this.getIsRequired(field) ?
-          `${field.label}<span aria-hidden="true">*</span>`
-          : field.label
+        `${field.label}<span aria-hidden="true">*</span>`
+        : field.label
     },
     getValue (type, value, key) {
       // checkboxes handle values differently from the other inputs
