@@ -61,6 +61,7 @@ export default {
       type: Boolean,
       default: false,
     },
+    // Set the initial value for each field. For checkboxes it is recommended setting this to `false`
     initialValue: {
       type: [
         String, Boolean,
