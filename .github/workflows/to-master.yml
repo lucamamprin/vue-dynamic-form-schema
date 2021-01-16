@@ -15,7 +15,7 @@ jobs:
       with:
         node-version: 14
     - run: npm ci
-    - run: npm run lint:fix
+    - run: npm run lint
     - run: npm run docs
     - name: Commit docs files
       run: |
