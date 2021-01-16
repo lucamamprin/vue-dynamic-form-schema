@@ -47,6 +47,7 @@ export default {
 
             // if it is a radio group
             if (role === "radiogroup") {
+              //TODO: test if it is actually always the first element and not just a ruse
               const focusOn = element.getElementsByTagName("input")[0] // get first radio input
               focusOn.focus()
 

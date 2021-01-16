@@ -1,6 +1,6 @@
 {
   "name": "vue-dynamic-form-schema",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "description": "A form generator that accepts a JSON schema to display a A11Y first form.",
   "main": "./src/index.js",
   "repository": {
@@ -8,6 +8,8 @@
     "url": "git://github.com/lucamamprin/vue-dynamic-form-schema"
   },
   "scripts": {
+    "docs": "vuese gen",
+    "docs:serve": "vuese serve --open",
     "lint": "eslint 'src/**/*.{js,vue}'",
     "lint:fix": "npm run lint -- --fix",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -18,6 +20,7 @@
     "vuelidate": "^0.7.6"
   },
   "devDependencies": {
+    "@vuese/cli": "^2.14.3",
     "eslint": "^7.17.0",
     "eslint-plugin-vue": "^7.4.1",
     "vue-template-compiler": "^2.6.12"
