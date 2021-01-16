@@ -112,6 +112,9 @@ export default {
     },
   },
   methods: {
+    /**
+     * Used to get the proper component name.
+     */
     getComponent (type) {
       let component
       switch (type) {
