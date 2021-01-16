@@ -12,7 +12,7 @@
     "docs:serve": "vuese serve --open",
     "lint": "eslint 'src/**/*.{js,vue}'",
     "lint:fix": "npm run lint -- --fix",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "author": "Luca Mamprin",
   "license": "ISC",
@@ -20,9 +20,17 @@
     "vuelidate": "^0.7.6"
   },
   "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "@vue/test-utils": "^1.1.2",
     "@vuese/cli": "^2.14.3",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^26.6.3",
     "eslint": "^7.17.0",
     "eslint-plugin-vue": "^7.4.1",
+    "jest": "^26.6.3",
+    "vue": "^2.6.12",
+    "vue-jest": "^3.0.7",
     "vue-template-compiler": "^2.6.12"
   }
 }
