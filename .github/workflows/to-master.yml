@@ -18,6 +18,7 @@ jobs:
     - run: npm run lint
     - run: npm run docs
     - name: Commit docs files
+      if: github.ref == 'refs/heads/master'
       run: |
         echo ${{ github.ref }}
         git add website
