@@ -1,12 +1,6 @@
 // https://jestjs.io/docs/en/configuration.html
 
 module.exports = {
-  // Indicates whether the coverage information should be collected while executing the test
-  collectCoverage: true,
-
-  // The directory where Jest should output its coverage files
-  coverageDirectory: "coverage",
-
   // An array of regexp pattern strings used to skip coverage collection
   coveragePathIgnorePatterns: [
     "/node_modules/",
@@ -37,10 +31,11 @@ module.exports = {
     "/node_modules/",
   ],
 
-
   // A map from regular expressions to paths to transformers
-  "transform": {
+  transform: {
     "^.+\\.js$": "babel-jest",
     ".*\\.(vue)$": "vue-jest",
   },
+
+  snapshotSerializers: ["jest-serializer-vue",],
 };

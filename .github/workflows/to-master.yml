@@ -16,6 +16,7 @@ jobs:
         node-version: 14
     - run: npm ci
     - run: npm run lint
+    - run: npm test
     - name: Generating docs files
       if: github.ref == 'refs/heads/master'
       run: npm run docs
