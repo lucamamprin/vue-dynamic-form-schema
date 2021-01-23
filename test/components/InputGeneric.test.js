@@ -62,6 +62,7 @@ describe("InputGeneric", () => {
     await wrapper.setProps({
       minLength: 20,
       maxLength: 50,
+      value: "",
     })
 
     await Vue.nextTick()

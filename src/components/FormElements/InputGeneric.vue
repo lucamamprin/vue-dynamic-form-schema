@@ -61,7 +61,7 @@
         class="pal-col px-0"
       >
         <max-length
-          :typed-text="typeof value === 'undefined' || !value ? '' : value"
+          :typed-text="value"
           :sr-character-count="maxLengthDescribedBy"
           :label="removeStar(label)"
           :max-length="maxLength"

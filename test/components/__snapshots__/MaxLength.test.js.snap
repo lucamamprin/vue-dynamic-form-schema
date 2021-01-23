@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`max length indicator mounts correctly 1`] = `
+<div class="text-right text-light"><span id="first-name-counter" class="sr-only">
+    0 characters on 50 available for First name
+  </span>
+  <p class="m-0">
+    0 / 50
+  </p>
+</div>
+`;

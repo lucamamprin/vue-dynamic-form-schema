@@ -1,14 +1,38 @@
-<template functional>
+<template>
   <div class="text-right text-light">
     <span
-      :id="props.srCharacterCount"
+      :id="srCharacterCount"
       class="sr-only"
     >
-      {{ `${props.typedtext ? 0 : props.typedText.length} characters on ${props.maxLength} available for ${props.label}` }}
+      {{ `${typedText ? 0 : typedText.length} characters on ${maxLength} available for ${label}` }}
     </span>
 
     <p class="m-0">
-      {{ props.typedText.length }} / {{ props.maxLength }}
+      {{ typedText.length }} / {{ maxLength }}
     </p>
   </div>
 </template>
+
+<script>
+export default {
+  name: "MaxLength",
+  props: {
+    srCharacterCount: {
+      type: String,
+      required: true,
+    },
+    typedText: {
+      type: String,
+      default: "",
+    },
+    maxLength: {
+      type: Number,
+      required: true,
+    },
+    label: {
+      type: String,
+      required: true,
+    },
+  },
+}
+</script>
