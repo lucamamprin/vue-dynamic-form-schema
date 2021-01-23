@@ -1,5 +1,5 @@
 import Vue from "vue"
-import { mount } from "@vue/test-utils"
+import { shallowMount } from "@vue/test-utils"
 import InputGeneric from "../../src/components/FormElements/InputGeneric.vue"
 
 const props = {
@@ -21,7 +21,7 @@ let wrapper
 
 describe("InputGeneric", () => {
   beforeEach(() => {
-    wrapper = mount(InputGeneric, {
+    wrapper = shallowMount(InputGeneric, {
       propsData: props,
     })
   })
@@ -83,7 +83,7 @@ describe("Input Generic - input number", () => {
   const max = 50
 
   beforeEach(() => {
-    wrapper = mount(InputGeneric, {
+    wrapper = shallowMount(InputGeneric, {
       propsData: numberProps,
     })
   })
@@ -114,7 +114,7 @@ describe("multiple input types", () => {
         label: `${type}-label`,
       }
 
-      wrapper = mount(InputGeneric, {
+      wrapper = shallowMount(InputGeneric, {
         propsData: typeProps,
       })
 

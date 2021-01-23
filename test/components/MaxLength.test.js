@@ -1,4 +1,4 @@
-import { mount } from "@vue/test-utils"
+import { shallowMount } from "@vue/test-utils"
 import MaxLength from "../../src/components/FormElements/Atoms/MaxLength.vue"
 
 const propsDefault = {
@@ -13,7 +13,7 @@ let wrapper
 describe("max length indicator", () => {
 
   beforeEach(() => {
-    wrapper = mount(MaxLength, {
+    wrapper = shallowMount(MaxLength, {
       propsData: propsDefault,
     })
   })
