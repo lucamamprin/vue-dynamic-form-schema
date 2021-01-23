@@ -1,16 +1,18 @@
 <template>
-  <div class="input floating-label"
-       :class="[{
-           'input-transparent': darkMode,
-            'mt-0': resetMarginTop,
-            'floating-label-floated': value || floatedLabel
-         }, $attrs.type]">
+  <div
+    class="input floating-label"
+    :class="[{
+      'input-transparent': darkMode,
+      'mt-0': resetMarginTop,
+      'floating-label-floated': value || floatedLabel
+    }, $attrs.type]"
+  >
     <div class="position-relative">
       <input
         v-bind="$attrs"
         :class="{
-        'border-danger': hasError,
-      }"
+          'border-danger': hasError,
+        }"
         :aria-describedby="`${describedBy} ${maxLengthDescribedBy}`"
         :value="value"
         :name="name"
@@ -23,37 +25,46 @@
         :aria-invalid="invalid.toString()"
         :aria-required="required.toString()"
         v-on="{
-        ...$listeners,
-        input: event => $emit('input', uppercase ? event.target.value.toUpperCase() : event.target.value)
-      }"
+          ...$listeners,
+          input: event => $emit('input', uppercase ? event.target.value.toUpperCase() : event.target.value)
+        }"
       >
-      <label :id="`label-${name}`"
-             :for="id"
-             v-html="label"></label>
+      <label
+        :id="`label-${name}`"
+        :for="id"
+        v-html="label"
+      />
     </div>
 
-    <div v-if="(hasCharacterCount) || hasLeftColSlot"
-         class="pal-row pal-no-gutters mt-2">
-      <div v-if="hasLeftColSlot"
-           class="pal-col px-0">
-        <slot name="leftCol">
-        </slot>
+    <div
+      v-if="(hasCharacterCount) || hasLeftColSlot"
+      class="pal-row pal-no-gutters mt-2"
+    >
+      <div
+        v-if="hasLeftColSlot"
+        class="pal-col px-0"
+      >
+        <slot name="leftCol" />
       </div>
 
-      <div v-if="hasCharacterCount"
-           class="pal-col px-0">
-        <max-length :typedText="typeof value === 'undefined' || !value ? '' : value"
-                    :sr-character-count="maxLengthDescribedBy"
-                    :label="removeStar(label)"
-                    :max-length="maxLength">
-        </max-length>
+      <div
+        v-if="hasCharacterCount"
+        class="pal-col px-0"
+      >
+        <max-length
+          :typed-text="typeof value === 'undefined' || !value ? '' : value"
+          :sr-character-count="maxLengthDescribedBy"
+          :label="removeStar(label)"
+          :max-length="maxLength"
+        />
       </div>
     </div>
 
-    <div v-if="hasError && error">
-      <error-message :id="describedBy"
-                     :error-message="error">
-      </error-message>
+    <div v-if="hasError && errorMessage">
+      <error-message
+        :id="describedBy"
+        :error-message="errorMessage"
+      />
     </div>
   </div>
 </template>
@@ -101,6 +112,7 @@ export default {
       type: [
         String, Number,
       ],
+      default: null,
     },
     disabled: {
       type: Boolean,
@@ -114,9 +126,9 @@ export default {
       type: String,
       required: true,
     },
-    error: {
+    errorMessage: {
       type: String,
-      required: false,
+      default: null,
     },
     hasError: {
       type: Boolean,
@@ -128,6 +140,7 @@ export default {
     },
     max: {
       type: null,
+      default: null,
     },
     minLength: {
       type: Number,
@@ -135,6 +148,7 @@ export default {
     },
     maxLength: {
       type: Number,
+      default: null,
     },
     showCharacterCount: {
       type: Boolean,

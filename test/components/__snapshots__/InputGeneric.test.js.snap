@@ -12,7 +12,9 @@ exports[`InputGeneric prints error message 1`] = `
 <div class="input floating-label">
   <div class="position-relative"><input aria-describedby="firstname-describe " name="firstname" id="firstname" minlength="0" placeholder=" " aria-labelledby="label-firstname" aria-invalid="false" aria-required="true" class="border-danger"> <label id="label-firstname" for="firstname">First name</label></div>
   <!---->
-  <div><span id="firstname-describe" class="help m-0   d-inline-block">Generic error message</span></div>
+  <div><span id="firstname-describe" class="help m-0   d-inline-block">
+  Generic error message
+</span></div>
 </div>
 `;
 

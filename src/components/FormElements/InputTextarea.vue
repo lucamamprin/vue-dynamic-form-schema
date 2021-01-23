@@ -1,63 +1,66 @@
 <template>
-  <div class="input textarea floating-label"
-       :class="{'input-transparent': darkMode, 'mt-0': resetMarginTop, 'floating-label-floated': typedText.length || floatedLabel}">
+  <div
+    class="input textarea floating-label"
+    :class="{'input-transparent': darkMode, 'mt-0': resetMarginTop, 'floating-label-floated': typedText.length || floatedLabel}"
+  >
     <div :class="areaClass">
-            <textarea
-                :name="name"
-                :id="id"
-                :disabled="disabled"
-                :rows="rows"
-                :cols="cols"
-                :minlength="minLength"
-                :maxlength="maxLength"
-                @input="onType($event)"
-                @keyup.enter="resize"
-                @keyup.delete="resize"
-                :aria-describedby="`${describedBy} ${maxLengthDescribedBy}`"
-                :aria-invalid="invalid.toString()"
-                :aria-required="required.toString()"
-                :aria-labelledby="`label-${name}`"
-                :class="{'border-danger': hasError,}"
-                :style="inputStyle"
-                :placeholder="placeholderText"
-            >
-            </textarea>
-      <label :for="id"
-             v-html="label"></label>
+      <textarea
+        :id="id"
+        :name="name"
+        :disabled="disabled"
+        :rows="rows"
+        :cols="cols"
+        :minlength="minLength"
+        :maxlength="maxLength"
+        :aria-describedby="`${describedBy} ${maxLengthDescribedBy}`"
+        :aria-invalid="invalid.toString()"
+        :aria-required="required.toString()"
+        :aria-labelledby="`label-${name}`"
+        :class="{'border-danger': hasError,}"
+        :style="inputStyle"
+        :placeholder="placeholderText"
+        @input="onType($event)"
+        @keyup.enter="resize"
+        @keyup.delete="resize"
+      />
+      <label
+        :for="id"
+        v-html="label"
+      />
 
       <textarea
-          v-if="resizeTextArea"
-          class="shadow"
-          ref="shadow"
-          :style="shadowStyles"
-          v-model="typedText"
-          tabindex="-1"
-          :id="`shadow-${name}`"
-      >
-      </textarea>
-      <label v-if="resizeTextArea"
-             :for="`shadow-${name}`"
-             class="sr-only"
+        v-if="resizeTextArea"
+        :id="`shadow-${name}`"
+        ref="shadow"
+        v-model="typedText"
+        class="shadow"
+        :style="shadowStyles"
+        tabindex="-1"
+      />
+      <label
+        v-if="resizeTextArea"
+        :for="`shadow-${name}`"
+        class="sr-only"
       >{{ label }}</label>
     </div>
 
     <max-length
-        v-if="maxLength && showCharacterCount"
-        :typedText="typedText"
-        :max-length="maxLength"
-        :sr-character-count="maxLengthDescribedBy"
-        :label="removeStar(label)"
-        classes="pr-lg-14"
-    >
-    </max-length>
+      v-if="hasCharacterCount"
+      :typed-text="typedText"
+      :max-length="maxLength"
+      :sr-character-count="maxLengthDescribedBy"
+      :label="removeStar(label)"
+      classes="pr-lg-14"
+    />
 
-    <div v-if="hasError && error"
-         class="mb-13">
+    <div
+      v-if="hasError && error"
+      class="mb-13"
+    >
       <error-message
-          :id="describedBy"
-          :error-message="error"
-      >
-      </error-message>
+        :id="describedBy"
+        :error-message="error"
+      />
     </div>
   </div>
 </template>
@@ -70,26 +73,13 @@ const ErrorMessage = () => import("./Atoms/ErrorMessage")
 
 export default {
   name: "InputTextarea",
-  data () {
-    return {
-      typedText: "",
-      inputHeight: "0",
-      shadowStyles: {
-        maxHeight: 0,
-        pointerEvents: "none",
-        opacity: 0,
-        margin: 0,
-        padding: 0,
-      },
-    }
-  },
-  mixins: [
-    removeStar,
-  ],
   components: {
     MaxLength,
     ErrorMessage,
   },
+  mixins: [
+    removeStar,
+  ],
   props: {
     // textarea specific props
     resizeTextArea: {
@@ -98,11 +88,16 @@ export default {
     },
     rows: {
       type: Number,
+      default: 2,
     },
     cols: {
       type: Number,
+      default: 20,
     },
-    areaClass: String,
+    areaClass: {
+      type: String,
+      default: "",
+    },
     disabled: {
       type: Boolean,
       default: false,
@@ -123,8 +118,10 @@ export default {
     },
     value: {
       type: [
-        String, Number,
+        String,
+        Number,
       ],
+      default: "",
     },
     name: {
       type: String,
@@ -136,7 +133,7 @@ export default {
     },
     error: {
       type: String,
-      required: false,
+      default: "",
     },
     hasError: {
       type: Boolean,
@@ -148,6 +145,7 @@ export default {
     },
     maxLength: {
       type: Number,
+      default: 0,
     },
     darkMode: {
       type: Boolean,
@@ -173,6 +171,19 @@ export default {
       default: false,
     },
   },
+  data () {
+    return {
+      typedText: "",
+      inputHeight: "0",
+      shadowStyles: {
+        maxHeight: 0,
+        pointerEvents: "none",
+        opacity: 0,
+        margin: 0,
+        padding: 0,
+      },
+    }
+  },
   computed: {
     inputStyle () {
       if (!this.resizeTextArea) {
@@ -191,6 +202,9 @@ export default {
       return this.hasCharacterCount ? `${this.id}-counter` : ""
     },
   },
+  mounted () {
+    this.resize()
+  },
   methods: {
     onType ($event) {
       const value = $event.target.value
@@ -207,9 +221,6 @@ export default {
 
       this.inputHeight = `${this.$refs.shadow.scrollHeight}px`
     },
-  },
-  mounted () {
-    this.resize()
   },
 }
 </script>

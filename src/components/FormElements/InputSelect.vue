@@ -1,14 +1,16 @@
 <template>
-  <div class="input select floating-label floating-label-floated"
-       :class="{'input-transparent': darkMode, 'mt-0': resetMarginTop}">
+  <div
+    class="input select floating-label floating-label-floated"
+    :class="{'input-transparent': darkMode, 'mt-0': resetMarginTop}"
+  >
     <select
+      :id="id"
       :class="{
         'border-danger': hasError,
         'is-selected': value,
       }"
       :aria-describedby="describedBy"
       :name="name"
-      :id="id"
       :disabled="disabled"
       :aria-invalid="invalid.toString()"
       :aria-required="required.toString()"
@@ -19,29 +21,33 @@
       })"
     >
       <option
-          value
-          :selected="!value"
-      >{{firstValue}}</option>
+        value
+        :selected="!value"
+      >
+        {{ firstValue }}
+      </option>
       <option
         v-for="opt in options"
         :key="opt.value"
         :value="opt.value"
         :selected="opt.value === value"
-      >{{opt.label}}</option>
+      >
+        {{ opt.label }}
+      </option>
     </select>
 
     <label
-        v-if="label"
-        :for="id"
-        :id="`label-${name}`"
-        v-html="label"
-    >
-    </label>
+      v-if="label"
+      :id="`label-${name}`"
+      :for="id"
+      v-html="label"
+    />
 
-    <div v-if="hasError && error">
-      <error-message :id="describedBy"
-                     :error-message="error">
-      </error-message>
+    <div v-if="hasError && errorMessage">
+      <error-message
+        :id="describedBy"
+        :error-message="errorMessage"
+      />
     </div>
   </div>
 </template>
@@ -62,6 +68,7 @@ export default {
       type: [
         String, Number, Object,
       ],
+      required: true,
     },
     name: {
       type: String,
@@ -69,6 +76,7 @@ export default {
     },
     label: {
       type: String,
+      required: true,
     },
     disabled: {
       type: Boolean,
@@ -86,7 +94,10 @@ export default {
       },
     },
     hasError: { type: Boolean, default: false },
-    error: { type: String, required: false },
+    errorMessage: { 
+      type: String,
+      default: "",
+    },
     darkMode: {
       type: Boolean,
       default: false,

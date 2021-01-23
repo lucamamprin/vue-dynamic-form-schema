@@ -1,41 +1,44 @@
 <template>
   <div class="position-relative">
-    <div :class="{'mt-0': resetMarginTop, 'inverted': darkMode}"
-         class="input checkbox is-focused">
+    <div
+      :class="{'mt-0': resetMarginTop, 'inverted': darkMode}"
+      class="input checkbox is-focused"
+    >
       <input
-          type="checkbox"
-          :id="id"
-          :name="name"
-          :value="value"
-          :disabled="disabled"
-          :aria-describedby="describedBy"
-          v-on="{
-               ...$listeners,
-               change: event => $emit('input', event.target.checked)
-             }"
-          :class="{'missingBackground': hasError && error}"
-          :aria-labelledby="`label-${id}`"
-          :aria-required="required"
-          :aria-invalid="invalid.toString()"
+        :id="id"
+        type="checkbox"
+        :name="name"
+        :value="value"
+        :disabled="disabled"
+        :aria-describedby="describedBy"
+        :class="{'missingBackground': hasError && error}"
+        :aria-labelledby="`label-${id}`"
+        :aria-required="required"
+        :aria-invalid="invalid.toString()"
+        v-on="{
+          ...$listeners,
+          change: event => $emit('input', event.target.checked)
+        }"
       >
 
       <label
-          :for="id"
-          :id="`label-${id}`"
-          :data-cy="name"
-          :class="{'text-white': darkMode}"
+        :id="`label-${id}`"
+        :for="id"
+        :data-cy="name"
+        :class="{'text-white': darkMode}"
       >
-        <span class="d-block"
-              v-html="label">
+        <span
+          class="d-block"
+        >
+          {{ label }}
         </span>
       </label>
 
       <error-message
-          v-if="hasError && error"
-          :id="describedBy"
-          :error-message="error"
-      >
-      </error-message>
+        v-if="hasError && error"
+        :id="describedBy"
+        :error-message="error"
+      />
     </div>
   </div>
 </template>
@@ -45,10 +48,10 @@ const ErrorMessage = () => import("./Atoms/ErrorMessage")
 
 export default {
   name: "InputCheckbox",
-  inheritAttrs: false,
   components: {
     ErrorMessage,
   },
+  inheritAttrs: false,
   props: {
     id: {
       type: String,
@@ -60,6 +63,7 @@ export default {
     },
     value: {
       type: null, // accept everything
+      default: null,
     },
     disabled: {
       type: Boolean,
@@ -77,6 +81,7 @@ export default {
     error: {
       type: String,
       required: false,
+      default: "",
     },
     hasError: {
       type: Boolean,
@@ -88,13 +93,11 @@ export default {
     },
     max: {
       type: null,
+      default: "",
     },
     minLength: {
       type: Number,
       default: 0,
-    },
-    maxLength: {
-      type: Number,
     },
     darkMode: {
       type: Boolean,

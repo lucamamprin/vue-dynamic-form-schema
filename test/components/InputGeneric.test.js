@@ -43,7 +43,7 @@ describe("InputGeneric", () => {
   test("prints error message", async () => {
     await wrapper.setProps({
       hasError: true,
-      error: "Generic error message",
+      errorMessage: "Generic error message",
     })
 
     await Vue.nextTick()

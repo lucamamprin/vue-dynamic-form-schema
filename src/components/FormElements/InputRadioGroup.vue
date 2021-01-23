@@ -1,50 +1,58 @@
 <template>
-  <div class="input radio"
-       v-if="options && name">
-    <fieldset :name="fieldSetName"
-              :aria-required="required.toString()"
-              :aria-describedby="describedBy"
-              role="radiogroup"
-              :id="id"
-              class="p-0 m-0">
-        <legend class="d-flex align-items-center mb-5">
-        <span v-if="label"
-              v-html="label"
-              :class="{'text-primary': !darkMode}"
-              class="h6 d-inline-block"></span>
+  <div
+    v-if="options && name"
+    class="input radio"
+  >
+    <fieldset
+      :id="id"
+      :name="fieldSetName"
+      :aria-required="required.toString()"
+      :aria-describedby="describedBy"
+      role="radiogroup"
+      class="p-0 m-0"
+    >
+      <legend class="d-flex align-items-center mb-5">
+        <span
+          v-if="label"
+          :class="{'text-primary': !darkMode}"
+          class="h6 d-inline-block"
+          v-html="label"
+        />
 
-          <span v-if="hasError && error">
-          <error-message :id="describedBy"
-                         position="static"
-                         :inline-error="true"
-                         class="text-nowrap"
-                         :error-message="error">
-          </error-message>
+        <span v-if="hasError && errorMessage">
+          <error-message
+            :id="describedBy"
+            position="static"
+            :inline-error="true"
+            class="text-nowrap"
+            :error-message="error"
+          />
         </span>
-        </legend>
+      </legend>
 
-      <div v-for="(radio, idx) in options"
-           :key="idx"
-           class="radio-container-input">
+      <div
+        v-for="(radio, idx) in options"
+        :key="idx"
+        class="radio-container-input"
+      >
         <input
-            type="radio"
-            :name="name"
-            :id="getId(idx)"
-            :value="radio.value"
-            :disabled="disabled"
-            :aria-invalid="invalid.toString()"
-            :aria-labelledby="getId(idx, true)"
-            :class="{'missingBackground': hasError && error}"
-            @change="$emit('input', radio)"
+          :id="getId(idx)"
+          type="radio"
+          :name="name"
+          :value="radio.value"
+          :disabled="disabled"
+          :aria-invalid="invalid.toString()"
+          :aria-labelledby="getId(idx, true)"
+          :class="{'missingBackground': hasError && error}"
+          @change="$emit('input', radio)"
         >
 
         <label
-            :for="getId(idx)"
-            :id="getId(idx, true)"
-            v-html="radio.label"
-            :class="{'radio-transparent radio-white text-white': darkMode}"
-        >
-        </label>
+          :id="getId(idx, true)"
+          :for="getId(idx)"
+          :class="{'radio-transparent radio-white text-white': darkMode}"
+          v-html="radio.label"
+        />
       </div>
     </fieldset>
   </div>
@@ -55,23 +63,19 @@ const ErrorMessage = () => import("./Atoms/ErrorMessage")
 
 export default {
   name: "InputRadioGroup",
-  inheritAttrs: false,
   components: {
     ErrorMessage,
   },
-  methods: {
-    getId (idx, isLabel = false) {
-      const id = `${this.id}-${idx}`
-
-      return isLabel ? `label-${id}` : id
-    },
-  },
+  inheritAttrs: false,
   props: {
-    fieldSetName: String,
+    fieldSetName: {
+      type: String,
+      required: true,
+    },
     errorCondition: Boolean,
-    errorText: String,
     value: {
       type: Object,
+      required: true,
     },
     id: {
       type: String,
@@ -106,8 +110,14 @@ export default {
         )
       },
     },
-    hasError: {type: Boolean, default: false},
-    error: {type: String, required: false},
+    hasError: {
+      type: Boolean,
+      default: false,
+    },
+    errorMessage: {
+      type: String,
+      default: null,
+    },
     darkMode: {
       type: Boolean,
       default: false,
@@ -118,6 +128,13 @@ export default {
     required: {
       type: Boolean,
       default: false,
+    },
+  },
+  methods: {
+    getId (idx, isLabel = false) {
+      const id = `${this.id}-${idx}`
+
+      return isLabel ? `label-${id}` : id
     },
   },
 }
