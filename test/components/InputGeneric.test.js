@@ -10,7 +10,14 @@ const props = {
   required: true,
 }
 
-let wrapper 
+const types = [
+  "search",
+  "tel",
+  "email",
+  "password",
+]
+
+let wrapper
 
 describe("InputGeneric", () => {
   beforeEach(() => {
@@ -50,4 +57,68 @@ describe("InputGeneric", () => {
 
     expect(wrapper).toMatchSnapshot()
   })
+
+  test("show minlength and maxlength attributes and component", async () => {
+    await wrapper.setProps({
+      minLength: 20,
+      maxLength: 50,
+      value: "",
+    })
+
+    await Vue.nextTick()
+
+    expect(wrapper).toMatchSnapshot()
+  })
+  
+})
+
+describe("Input Generic - input number", () => {
+  const numberProps = {
+    id: "age-input",
+    describedBy: "age-describe",
+    name: "age",
+    label: "Age",
+  }
+  const min = 20
+  const max = 50
+
+  beforeEach(() => {
+    wrapper = mount(InputGeneric, {
+      propsData: numberProps,
+    })
+  })
+
+  test("number mounts correctly", async () => {
+    expect(wrapper).toMatchSnapshot()
+  })
+
+  test("has max and min values", async () => {
+    await wrapper.setProps({
+      min,
+      max,
+    })
+
+    await Vue.nextTick()
+
+    expect(wrapper).toMatchSnapshot()
+  })
+})
+
+describe("multiple input types", () => {
+  for (const type of types) {
+    test(`${type}`, () => {
+      const typeProps = {
+        id: `${type}-input`,
+        describedBy: `${type}-describe`,
+        name: `${type}-name`,
+        label: `${type}-label`,
+      }
+
+      wrapper = mount(InputGeneric, {
+        propsData: typeProps,
+      })
+
+      expect(wrapper).toMatchSnapshot()
+    })
+  }
 })

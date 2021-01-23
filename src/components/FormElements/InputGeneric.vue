@@ -1,11 +1,14 @@
 <template>
   <div
     class="input floating-label"
-    :class="[{
-      'input-transparent': darkMode,
-      'mt-0': resetMarginTop,
-      'floating-label-floated': value || floatedLabel
-    }, $attrs.type]"
+    :class="[
+      {
+        'input-transparent': darkMode,
+        'mt-0': resetMarginTop,
+        'floating-label-floated': value || floatedLabel,
+      },
+      $attrs.type,
+    ]"
   >
     <div class="position-relative">
       <input
@@ -18,6 +21,8 @@
         :name="name"
         :id="id"
         :disabled="disabled"
+        :min="min"
+        :max="max"
         :minlength="minLength"
         :maxlength="maxLength"
         :placeholder="placeholderText"
@@ -26,7 +31,11 @@
         :aria-required="required.toString()"
         v-on="{
           ...$listeners,
-          input: event => $emit('input', uppercase ? event.target.value.toUpperCase() : event.target.value)
+          input: (event) =>
+            $emit(
+              'input',
+              uppercase ? event.target.value.toUpperCase() : event.target.value
+            ),
         }"
       >
       <label
@@ -37,7 +46,7 @@
     </div>
 
     <div
-      v-if="(hasCharacterCount) || hasLeftColSlot"
+      v-if="hasCharacterCount || hasLeftColSlot"
       class="pal-row pal-no-gutters mt-2"
     >
       <div
@@ -52,7 +61,7 @@
         class="pal-col px-0"
       >
         <max-length
-          :typed-text="typeof value === 'undefined' || !value ? '' : value"
+          :typed-text="value"
           :sr-character-count="maxLengthDescribedBy"
           :label="removeStar(label)"
           :max-length="maxLength"
@@ -136,7 +145,7 @@ export default {
     },
     min: {
       type: null,
-      default: 0,
+      default: null,
     },
     max: {
       type: null,
@@ -144,7 +153,7 @@ export default {
     },
     minLength: {
       type: Number,
-      default: 0,
+      default: null,
     },
     maxLength: {
       type: Number,
