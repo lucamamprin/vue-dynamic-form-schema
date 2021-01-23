@@ -6,8 +6,8 @@
 |Name|Description|Type|Required|Default|
 |---|---|---|---|---|
 |resizeTextArea|textarea specific props|`Boolean`|`false`|true|
-|rows|-|`Number`|`false`|-|
-|cols|-|`Number`|`false`|-|
+|rows|-|`Number`|`false`|2|
+|cols|-|`Number`|`false`|20|
 |areaClass|-|`String`|`false`|-|
 |disabled|-|`Boolean`|`false`|false|
 |floatedLabel|common with BaseInput|`Boolean`|`false`|false|
@@ -19,7 +19,7 @@
 |error|-|`String`|`false`|-|
 |hasError|-|`Boolean`|`false`|false|
 |minLength|-|`Number`|`false`|0|
-|maxLength|-|`Number`|`false`|-|
+|maxLength|-|`Number`|`false`|0|
 |darkMode|-|`Boolean`|`false`|false|
 |showCharacterCount|-|`Boolean`|`false`|true|
 |placeholderText|-|`String`|`false`| |

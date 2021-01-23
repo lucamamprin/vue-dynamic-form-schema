@@ -8,16 +8,16 @@
 |floatedLabel|-|`Boolean`|`false`|false|
 |id|-|`String`|`true`|-|
 |describedBy|-|`String`|`true`|-|
-|value|-|`String` /  `Number`|`false`|-|
+|value|-|`String` /  `Number`|`false`|null|
 |disabled|-|`Boolean`|`false`|false|
 |name|-|`String`|`true`|-|
 |label|-|`String`|`true`|-|
-|error|-|`String`|`false`|-|
+|errorMessage|-|`String`|`false`|null|
 |hasError|-|`Boolean`|`false`|false|
 |min|-|—|`false`|0|
-|max|-|—|`false`|-|
+|max|-|—|`false`|null|
 |minLength|-|`Number`|`false`|0|
-|maxLength|-|`Number`|`false`|-|
+|maxLength|-|`Number`|`false`|null|
 |showCharacterCount|-|`Boolean`|`false`|true|
 |resetMarginTop|-|`Boolean`|`false`|false|
 |darkMode|-|`Boolean`|`false`|false|

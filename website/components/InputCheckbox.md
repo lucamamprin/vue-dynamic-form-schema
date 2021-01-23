@@ -7,7 +7,7 @@
 |---|---|---|---|---|
 |id|-|`String`|`true`|-|
 |describedBy|-|`String`|`true`|-|
-|value|-|—|`false`|-|
+|value|-|—|`false`|accept everything|
 |disabled|-|`Boolean`|`false`|false|
 |label|-|`String`|`true`|-|
 |resetMarginTop|-|`Boolean`|`false`|-|
@@ -17,7 +17,6 @@
 |min|-|—|`false`|0|
 |max|-|—|`false`|-|
 |minLength|-|`Number`|`false`|0|
-|maxLength|-|`Number`|`false`|-|
 |darkMode|-|`Boolean`|`false`|false|
 |invalid|-|`Boolean`|`false`|-|
 |required|-|`Boolean`|`false`|false|

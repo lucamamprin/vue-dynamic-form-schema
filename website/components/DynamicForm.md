@@ -20,9 +20,9 @@
 <!-- @vuese:DynamicForm:events:start -->
 |Event Name|Description|Parameters|
 |---|---|---|
+|mounted|-|-|
 |input|-|-|
 |status|-|-|
-|mounted|-|-|
 
 <!-- @vuese:DynamicForm:events:end -->
 
