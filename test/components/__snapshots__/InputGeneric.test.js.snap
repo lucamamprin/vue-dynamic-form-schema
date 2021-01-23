@@ -1,8 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Input Generic - input number has max and min values 1`] = `
+<div class="input floating-label">
+  <div class="position-relative"><input aria-describedby="age-describe " name="age" id="age-input" placeholder=" " aria-labelledby="label-age" aria-invalid="false" aria-required="false" class="" min="20" max="50"> <label id="label-age" for="age-input">Age</label></div>
+  <!---->
+  <!---->
+</div>
+`;
+
+exports[`Input Generic - input number number mounts correctly 1`] = `
+<div class="input floating-label">
+  <div class="position-relative"><input aria-describedby="age-describe " name="age" id="age-input" placeholder=" " aria-labelledby="label-age" aria-invalid="false" aria-required="false" class=""> <label id="label-age" for="age-input">Age</label></div>
+  <!---->
+  <!---->
+</div>
+`;
+
 exports[`InputGeneric mounts correctly 1`] = `
 <div class="input floating-label">
-  <div class="position-relative"><input aria-describedby="firstname-describe " name="firstname" id="firstname" minlength="0" placeholder=" " aria-labelledby="label-firstname" aria-invalid="false" aria-required="true" class=""> <label id="label-firstname" for="firstname">First name</label></div>
+  <div class="position-relative"><input aria-describedby="firstname-describe " name="firstname" id="firstname" placeholder=" " aria-labelledby="label-firstname" aria-invalid="false" aria-required="true" class=""> <label id="label-firstname" for="firstname">First name</label></div>
   <!---->
   <!---->
 </div>
@@ -10,7 +26,7 @@ exports[`InputGeneric mounts correctly 1`] = `
 
 exports[`InputGeneric prints error message 1`] = `
 <div class="input floating-label">
-  <div class="position-relative"><input aria-describedby="firstname-describe " name="firstname" id="firstname" minlength="0" placeholder=" " aria-labelledby="label-firstname" aria-invalid="false" aria-required="true" class="border-danger"> <label id="label-firstname" for="firstname">First name</label></div>
+  <div class="position-relative"><input aria-describedby="firstname-describe " name="firstname" id="firstname" placeholder=" " aria-labelledby="label-firstname" aria-invalid="false" aria-required="true" class="border-danger"> <label id="label-firstname" for="firstname">First name</label></div>
   <!---->
   <div><span id="firstname-describe" class="help m-0   d-inline-block">
   Generic error message
@@ -20,7 +36,58 @@ exports[`InputGeneric prints error message 1`] = `
 
 exports[`InputGeneric prints the floating label classes if user types a value 1`] = `
 <div class="input floating-label floating-label-floated">
-  <div class="position-relative"><input aria-describedby="firstname-describe " name="firstname" id="firstname" minlength="0" placeholder=" " aria-labelledby="label-firstname" aria-invalid="false" aria-required="true" class=""> <label id="label-firstname" for="firstname">First name</label></div>
+  <div class="position-relative"><input aria-describedby="firstname-describe " name="firstname" id="firstname" placeholder=" " aria-labelledby="label-firstname" aria-invalid="false" aria-required="true" class=""> <label id="label-firstname" for="firstname">First name</label></div>
+  <!---->
+  <!---->
+</div>
+`;
+
+exports[`InputGeneric show minlength and maxlength attributes and component 1`] = `
+<div class="input floating-label">
+  <div class="position-relative"><input aria-describedby="firstname-describe firstname-counter" name="firstname" id="firstname" placeholder=" " aria-labelledby="label-firstname" aria-invalid="false" aria-required="true" class="" minlength="20" maxlength="50"> <label id="label-firstname" for="firstname">First name</label></div>
+  <div class="pal-row pal-no-gutters mt-2">
+    <!---->
+    <div class="pal-col px-0">
+      <div class="text-right text-light"><span id="firstname-counter" class="sr-only">
+    0 characters on 50 available for First name
+  </span>
+        <p class="m-0">
+          0 / 50
+        </p>
+      </div>
+    </div>
+  </div>
+  <!---->
+</div>
+`;
+
+exports[`multiple input types email 1`] = `
+<div class="input floating-label">
+  <div class="position-relative"><input aria-describedby="email-describe " name="email-name" id="email-input" placeholder=" " aria-labelledby="label-email-name" aria-invalid="false" aria-required="false" class=""> <label id="label-email-name" for="email-input">email-label</label></div>
+  <!---->
+  <!---->
+</div>
+`;
+
+exports[`multiple input types password 1`] = `
+<div class="input floating-label">
+  <div class="position-relative"><input aria-describedby="password-describe " name="password-name" id="password-input" placeholder=" " aria-labelledby="label-password-name" aria-invalid="false" aria-required="false" class=""> <label id="label-password-name" for="password-input">password-label</label></div>
+  <!---->
+  <!---->
+</div>
+`;
+
+exports[`multiple input types search 1`] = `
+<div class="input floating-label">
+  <div class="position-relative"><input aria-describedby="search-describe " name="search-name" id="search-input" placeholder=" " aria-labelledby="label-search-name" aria-invalid="false" aria-required="false" class=""> <label id="label-search-name" for="search-input">search-label</label></div>
+  <!---->
+  <!---->
+</div>
+`;
+
+exports[`multiple input types tel 1`] = `
+<div class="input floating-label">
+  <div class="position-relative"><input aria-describedby="tel-describe " name="tel-name" id="tel-input" placeholder=" " aria-labelledby="label-tel-name" aria-invalid="false" aria-required="false" class=""> <label id="label-tel-name" for="tel-input">tel-label</label></div>
   <!---->
   <!---->
 </div>

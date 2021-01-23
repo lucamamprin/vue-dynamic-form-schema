@@ -4,7 +4,7 @@
       :id="props.srCharacterCount"
       class="sr-only"
     >
-      {{ `${props.typedtext ? 0 : props.typedText.length} characters on ${props.maxLength} possible for ${props.label}` }}
+      {{ `${props.typedtext ? 0 : props.typedText.length} characters on ${props.maxLength} available for ${props.label}` }}
     </span>
 
     <p class="m-0">
