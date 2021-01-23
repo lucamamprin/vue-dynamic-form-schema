@@ -14,9 +14,9 @@
 |label|-|`String`|`true`|-|
 |errorMessage|-|`String`|`false`|null|
 |hasError|-|`Boolean`|`false`|false|
-|min|-|—|`false`|0|
+|min|-|—|`false`|null|
 |max|-|—|`false`|null|
-|minLength|-|`Number`|`false`|0|
+|minLength|-|`Number`|`false`|null|
 |maxLength|-|`Number`|`false`|null|
 |showCharacterCount|-|`Boolean`|`false`|true|
 |resetMarginTop|-|`Boolean`|`false`|false|
