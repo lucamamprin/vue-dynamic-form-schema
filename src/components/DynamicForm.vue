@@ -1,31 +1,30 @@
 <template>
   <div>
     <component
-        v-for="(field, key) in schema"
-        :key="key"
-        :name="key"
-        :is="getComponent(field.type)"
-        v-bind="{...field}"
-        :id="generateUniqueIdFromNameSpace(field, key)"
-        :described-by="generateUniqueIdFromNameSpace(field, key, true)"
-        :value="getValue(field.type, value, key)"
-        :min="validationParam(field.validations.minValue, 0)"
-        :max="validationParam(field.validations.maxValue, null)"
-        :minLength="validationParam(field.validations.minLength, 0)"
-        :maxLength="validationParam(field.validations.maxLength, null)"
-        :uppercase="field.uppercase"
-        :autocomplete="field.autocomplete"
-        @input="update(key, $event)"
-        :required="getIsRequired(field)"
-        :label="getLabel(field)"
-        :invalid="$v.form[key].$anyError"
-        :hasError="$v.form[key].$error && showErrors"
-        :error="errorMessages[key]"
-        :show-character-count="field.showCharacterCount"
-        :dark-mode="darkMode"
-        :reset-margin-top="firstFormElement === key"
-    >
-    </component>
+      :is="getComponent(field.type)"
+      v-for="(field, key) in schema"
+      v-bind="{...field}"
+      :id="generateUniqueIdFromNameSpace(field, key)"
+      :key="key"
+      :name="key"
+      :described-by="generateUniqueIdFromNameSpace(field, key, true)"
+      :value="getValue(field.type, value, key)"
+      :min="validationParam(field.validations.minValue, 0)"
+      :max="validationParam(field.validations.maxValue, null)"
+      :min-length="validationParam(field.validations.minLength, 0)"
+      :max-length="validationParam(field.validations.maxLength, null)"
+      :uppercase="field.uppercase"
+      :autocomplete="field.autocomplete"
+      :required="getIsRequired(field)"
+      :label="getLabel(field)"
+      :invalid="$v.form[key].$anyError"
+      :has-error="$v.form[key].$error && showErrors"
+      :error="errorMessages[key]"
+      :show-character-count="field.showCharacterCount"
+      :dark-mode="darkMode"
+      :reset-margin-top="firstFormElement === key"
+      @input="update(key, $event)"
+    />
   </div>
 </template>
 
@@ -40,6 +39,13 @@ const InputCheckbox = () => import("./FormElements/InputCheckbox")
 
 export default {
   name: "DynamicForm",
+  components: {
+    InputTextarea,
+    InputGeneric,
+    InputSelect,
+    InputRadioGroup,
+    InputCheckbox,
+  },
   props: {
     // the JSON schema representing the form structure.
     schema: {type: Object, required: true},
@@ -73,13 +79,6 @@ export default {
     return {
       form: {},
     }
-  },
-  components: {
-    InputTextarea,
-    InputGeneric,
-    InputSelect,
-    InputRadioGroup,
-    InputCheckbox,
   },
   computed: {
     firstFormElement () {
@@ -115,6 +114,14 @@ export default {
         return messages
       }, {})
     },
+  },
+  created () {
+    for (const name in this.schema) {
+      this.$set(this.form, name, this.initialValue)
+    }
+  },
+  mounted () {
+    this.$emit("mounted", this.form)
   },
   methods: {
     /**
@@ -194,14 +201,6 @@ export default {
   },
   validations () {
     return {form: validationRules(this.schema)}
-  },
-  created () {
-    for (const name in this.schema) {
-      this.$set(this.form, name, this.initialValue)
-    }
-  },
-  mounted () {
-    this.$emit("mounted", this.form)
   },
 }
 </script>

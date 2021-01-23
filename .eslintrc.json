@@ -4,7 +4,12 @@
     "es6": true,
     "node": true
   },
-  "extends": ["eslint:recommended", "plugin:vue/base"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:vue/strongly-recommended",
+    "plugin:jest/recommended"
+  ],
+  "plugins": ["jest"],
   "rules": {
     "semi": ["error", "never"],
     "quotes": ["error", "double"],
@@ -16,6 +21,7 @@
       "functions": "never"
     }],
     "array-bracket-newline": ["error", "always"],
-    "indent": [2, 2]
+    "indent": [2, 2],
+    "vue/require-default-prop": ["error"]
   }
 }
