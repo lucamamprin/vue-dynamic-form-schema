@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`error message mounts correctly 1`] = `
+<span id="error" class="help m-0   d-inline-block">
+  Generic error message
+</span>
+`;
+
+exports[`error message prints absolute position class 1`] = `
+<span id="error" class="help m-0  position-absolute d-inline-block">
+  Generic error message
+</span>
+`;
+
+exports[`error message prints block position class 1`] = `
+<span id="error" class="help m-0   d-block">
+  Generic error message
+</span>
+`;
+
+exports[`error message prints inline error class 1`] = `
+<span id="error" class="help m-0 ml-1  d-inline-block">
+  Generic error message
+</span>
+`;
+
+exports[`error message prints inline position class 1`] = `
+<span id="error" class="help m-0   d-inline">
+  Generic error message
+</span>
+`;
+
+exports[`error message prints relative position class 1`] = `
+<span id="error" class="help m-0  position-relative d-inline-block">
+  Generic error message
+</span>
+`;
+
+exports[`error message prints static position class 1`] = `
+<span id="error" class="help m-0  position-static d-inline-block">
+  Generic error message
+</span>
+`;
