@@ -60,14 +60,12 @@ export default {
     ErrorMessage,
   },
   props: {
-    firstValue: {
+    id: {
       type: String,
-      default: "",
+      required: true,
     },
-    value: {
-      type: [
-        String, Number, Object,
-      ],
+    describedBy: {
+      type: String,
       required: true,
     },
     name: {
@@ -77,6 +75,16 @@ export default {
     label: {
       type: String,
       required: true,
+    },
+    firstValue: {
+      type: String,
+      default: "",
+    },
+    value: {
+      type: [
+        String, Number, Object,
+      ],
+      default: null,
     },
     disabled: {
       type: Boolean,
@@ -112,14 +120,6 @@ export default {
     resetMarginTop: {
       type: Boolean,
       default: false,
-    },
-    id: {
-      type: String,
-      required: true,
-    },
-    describedBy: {
-      type: String,
-      required: true,
     },
   },
   data () {
