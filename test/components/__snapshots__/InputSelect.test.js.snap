@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InputSelect gets array of options 1`] = `
+<div class="input select floating-label floating-label-floated"><select id="favoriteAnimal" aria-describedby="favoriteAnimal-describe" name="animal" aria-invalid="false" aria-required="true" aria-labelledby="label-animal" class="">
+    <option value="">
+
+    </option>
+    <option value="dog">
+      Dog
+    </option>
+    <option value="cat">
+      Cat
+    </option>
+  </select> <label id="label-animal" for="favoriteAnimal">Favorite animal</label>
+  <!---->
+</div>
+`;
+
+exports[`InputSelect mounts correctly 1`] = `
+<div class="input select floating-label floating-label-floated"><select id="favoriteAnimal" aria-describedby="favoriteAnimal-describe" name="animal" aria-invalid="false" aria-required="true" aria-labelledby="label-animal" class="">
+    <option value="">
+
+    </option>
+  </select> <label id="label-animal" for="favoriteAnimal">Favorite animal</label>
+  <!---->
+</div>
+`;
+
+exports[`InputSelect shows error message 1`] = `
+<div class="input select floating-label floating-label-floated"><select id="favoriteAnimal" aria-describedby="favoriteAnimal-describe" name="animal" aria-invalid="true" aria-required="true" aria-labelledby="label-animal" class="border-danger">
+    <option value="">
+
+    </option>
+  </select> <label id="label-animal" for="favoriteAnimal">Favorite animal</label>
+  <div><span id="favoriteAnimal-describe" class="help m-0   d-inline-block">
+  You need to select an animal.
+</span></div>
+</div>
+`;
