@@ -1,6 +1,6 @@
 {
   "name": "vue-dynamic-form-schema",
-  "version": "0.5.5",
+  "version": "0.5.6",
   "description": "A form generator that accepts a JSON schema to display a A11Y first form.",
   "main": "./src/index.js",
   "repository": {
