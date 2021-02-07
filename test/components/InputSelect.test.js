@@ -58,4 +58,45 @@ describe("InputSelect", () => {
 
     expect(wrapper.find("select").element.disabled).toBeTruthy()
   })
+
+  test("sets new value", async () => {
+    await wrapper.setProps({
+      ...propsValues,
+    })
+
+    const options = wrapper.find("select").findAll("option")
+
+    await options.at(1).setSelected()
+
+    expect(wrapper.find("option:checked").element.value).toBe("dog")
+    expect(wrapper.find("select").element.value).toBe("dog")
+  })
+
+  test("shows error message", async () => {
+    await wrapper.setProps({
+      invalid: true,
+      hasError: true,
+      errorMessage: "You need to select an animal.",
+    })
+
+    await Vue.nextTick()
+
+    expect(wrapper.html()).toMatchSnapshot()
+  })
+
+  test("change event emitted", async () => {
+    wrapper.vm.$emit("input", {
+      label: "Seal",
+      value: "seal",
+    })
+
+    await Vue.nextTick()
+
+    const event = wrapper.emitted("input")
+    const value = event[0][0]
+
+    expect(wrapper.emitted("input")).toBeTruthy()
+
+    expect(typeof value).toBe("object")
+  })
 })
