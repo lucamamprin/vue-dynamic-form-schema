@@ -39,13 +39,3 @@
 <!-- @vuese:InputGeneric:slots:end -->
 
 
-## MixIns
-
-<!-- @vuese:InputGeneric:mixIns:start -->
-|MixIn|
-|---|
-|removeStar|
-
-<!-- @vuese:InputGeneric:mixIns:end -->
-
-

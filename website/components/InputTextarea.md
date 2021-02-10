@@ -13,7 +13,7 @@
 |floatedLabel|common with BaseInput|`Boolean`|`false`|false|
 |id|-|`String`|`true`|-|
 |describedBy|-|`String`|`true`|-|
-|value|-|`String` /  `Number`|`false`|null|
+|value|-|`String` /  `Number`|`false`|-|
 |name|-|`String`|`true`|-|
 |label|-|`String`|`true`|-|
 |error|-|`String`|`false`|-|
@@ -38,15 +38,5 @@
 |input|-|-|
 
 <!-- @vuese:InputTextarea:events:end -->
-
-
-## MixIns
-
-<!-- @vuese:InputTextarea:mixIns:start -->
-|MixIn|
-|---|
-|removeStar|
-
-<!-- @vuese:InputTextarea:mixIns:end -->
 
 
