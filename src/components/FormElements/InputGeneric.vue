@@ -79,16 +79,13 @@
 </template>
 
 <script>
-import removeStar from "../../utilities/removeStar"
+import { removeStar } from "../../utilities/removeStar"
 const MaxLength = () => import("./Atoms/MaxLength")
 const ErrorMessage = () => import("./Atoms/ErrorMessage")
 
 export default {
   name: "InputGeneric",
   inheritAttrs: false,
-  mixins: [
-    removeStar,
-  ],
   components: {
     MaxLength,
     ErrorMessage,
@@ -103,6 +100,9 @@ export default {
     maxLengthDescribedBy () {
       return this.hasCharacterCount ? `${this.id}-counter` : ""
     },
+  },
+  methods: {
+    removeStar,
   },
   props: {
     floatedLabel: {

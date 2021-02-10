@@ -22,6 +22,7 @@
         @input="onType($event)"
         @keyup.enter="resize"
         @keyup.delete="resize"
+        v-model="typedText"
       />
       <label
         :for="id"
@@ -36,6 +37,7 @@
         class="shadow"
         :style="shadowStyles"
         tabindex="-1"
+        :disabled="disabled"
       />
       <label
         v-if="resizeTextArea"
@@ -66,20 +68,30 @@
 </template>
 
 <script>
-import removeStar from "../../utilities/removeStar"
+import { removeStar } from "../../utilities/removeStar"
 
 const MaxLength = () => import("./Atoms/MaxLength")
 const ErrorMessage = () => import("./Atoms/ErrorMessage")
 
 export default {
   name: "InputTextarea",
+  data () {
+    return {
+      valueProxy: "",
+      inputHeight: "0",
+      shadowStyles: {
+        maxHeight: 0,
+        pointerEvents: "none",
+        opacity: 0,
+        margin: 0,
+        padding: 0,
+      },
+    }
+  },
   components: {
     MaxLength,
     ErrorMessage,
   },
-  mixins: [
-    removeStar,
-  ],
   props: {
     // textarea specific props
     resizeTextArea: {
@@ -121,7 +133,7 @@ export default {
         String,
         Number,
       ],
-      default: null,
+      default: "",
     },
     name: {
       type: String,
@@ -171,20 +183,15 @@ export default {
       default: false,
     },
   },
-  data () {
-    return {
-      typedText: "",
-      inputHeight: "0",
-      shadowStyles: {
-        maxHeight: 0,
-        pointerEvents: "none",
-        opacity: 0,
-        margin: 0,
-        padding: 0,
-      },
-    }
-  },
   computed: {
+    typedText: {
+      get () {
+        return this.value
+      },
+      set (newValue) {
+        this.valueProxy = newValue
+      },
+    },
     inputStyle () {
       if (!this.resizeTextArea) {
         return
@@ -202,15 +209,13 @@ export default {
       return this.hasCharacterCount ? `${this.id}-counter` : ""
     },
   },
-  mounted () {
-    this.resize()
-  },
   methods: {
+    removeStar,
     onType ($event) {
       const value = $event.target.value
 
       this.$emit("input", value)
-      this.typedText = value
+      this.valueProxy = value
       this.resize()
     },
     resize () {
@@ -221,6 +226,9 @@ export default {
 
       this.inputHeight = `${this.$refs.shadow.scrollHeight}px`
     },
+  },
+  mounted () {
+    this.resize()
   },
 }
 </script>

@@ -69,7 +69,6 @@ describe("InputGeneric", () => {
 
     expect(wrapper).toMatchSnapshot()
   })
-  
 })
 
 describe("Input Generic - input number", () => {
