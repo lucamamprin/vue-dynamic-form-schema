@@ -133,7 +133,7 @@ export default {
         String,
         Number,
       ],
-      default: "",
+      default: null,
     },
     name: {
       type: String,

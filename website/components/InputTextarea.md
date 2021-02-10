@@ -13,7 +13,7 @@
 |floatedLabel|common with BaseInput|`Boolean`|`false`|false|
 |id|-|`String`|`true`|-|
 |describedBy|-|`String`|`true`|-|
-|value|-|`String` /  `Number`|`false`|-|
+|value|-|`String` /  `Number`|`false`|null|
 |name|-|`String`|`true`|-|
 |label|-|`String`|`true`|-|
 |error|-|`String`|`false`|-|
