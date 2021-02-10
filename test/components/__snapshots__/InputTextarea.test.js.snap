@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InputTextarea accepts custom class 1`] = `
+<div class="input textarea floating-label">
+  <div class="my-custom-class"><textarea id="message" name="message" rows="2" cols="20" minlength="0" maxlength="0" aria-describedby="message-describe " aria-invalid="false" aria-required="false" aria-labelledby="label-message" placeholder=" " class="" style="min-height: 0px; overflow: hidden;"></textarea> <label for="message">Your Message</label> <textarea id="shadow-message" tabindex="-1" class="shadow" style="max-height: 0; pointer-events: none; opacity: 0; margin: 0px; padding: 0px;"></textarea> <label for="shadow-message" class="sr-only">Your Message</label></div>
+  <!---->
+  <!---->
+</div>
+`;
+
+exports[`InputTextarea accepts different cols and rows 1`] = `
+<div class="input textarea floating-label">
+  <div class=""><textarea id="message" name="message" rows="40" cols="40" minlength="0" maxlength="0" aria-describedby="message-describe " aria-invalid="false" aria-required="false" aria-labelledby="label-message" placeholder=" " class="" style="min-height: 0px; overflow: hidden;"></textarea> <label for="message">Your Message</label> <textarea id="shadow-message" tabindex="-1" class="shadow" style="max-height: 0; pointer-events: none; opacity: 0; margin: 0px; padding: 0px;"></textarea> <label for="shadow-message" class="sr-only">Your Message</label></div>
+  <!---->
+  <!---->
+</div>
+`;
+
+exports[`InputTextarea can be disabled 1`] = `
+<div class="input textarea floating-label">
+  <div class=""><textarea id="message" name="message" rows="2" cols="20" minlength="0" maxlength="0" aria-describedby="message-describe " aria-invalid="false" aria-required="false" aria-labelledby="label-message" placeholder=" " class="" style="min-height: 0px; overflow: hidden;" disabled="disabled"></textarea> <label for="message">Your Message</label> <textarea id="shadow-message" tabindex="-1" class="shadow" style="max-height: 0; pointer-events: none; opacity: 0; margin: 0px; padding: 0px;" disabled="disabled"></textarea> <label for="shadow-message" class="sr-only">Your Message</label></div>
+  <!---->
+  <!---->
+</div>
+`;
+
+exports[`InputTextarea mounts correctly 1`] = `
+<div class="input textarea floating-label">
+  <div class=""><textarea id="message" name="message" rows="2" cols="20" minlength="0" maxlength="0" aria-describedby="message-describe " aria-invalid="false" aria-required="false" aria-labelledby="label-message" placeholder=" " class="" style="min-height: 0px; overflow: hidden;"></textarea> <label for="message">Your Message</label> <textarea id="shadow-message" tabindex="-1" class="shadow" style="max-height: 0; pointer-events: none; opacity: 0; margin: 0px; padding: 0px;"></textarea> <label for="shadow-message" class="sr-only">Your Message</label></div>
+  <!---->
+  <!---->
+</div>
+`;
+
+exports[`InputTextarea shadow textarea won't show if resizing is disabled 1`] = `
+<div class="input textarea floating-label">
+  <div class=""><textarea id="message" name="message" rows="2" cols="20" minlength="0" maxlength="0" aria-describedby="message-describe " aria-invalid="false" aria-required="false" aria-labelledby="label-message" placeholder=" " class="" style=""></textarea> <label for="message">Your Message</label>
+    <!---->
+    <!---->
+  </div>
+  <!---->
+  <!---->
+</div>
+`;
+
+exports[`InputTextarea show minlength and maxlength attributes and component 1`] = `
+<div class="input textarea floating-label">
+  <div class=""><textarea id="message" name="message" rows="2" cols="20" minlength="0" maxlength="500" aria-describedby="message-describe message-counter" aria-invalid="false" aria-required="false" aria-labelledby="label-message" placeholder=" " class="" style="min-height: 0px; overflow: hidden;"></textarea> <label for="message">Your Message</label> <textarea id="shadow-message" tabindex="-1" class="shadow" style="max-height: 0; pointer-events: none; opacity: 0; margin: 0px; padding: 0px;"></textarea> <label for="shadow-message" class="sr-only">Your Message</label></div>
+  <div class="text-right text-light" classes="pr-lg-14"><span id="message-counter" class="sr-only">
+    0 characters on 500 available for Your Message
+  </span>
+    <p class="m-0">
+      0 / 500
+    </p>
+  </div>
+  <!---->
+</div>
+`;
