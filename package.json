@@ -15,7 +15,7 @@
     "test": "jest"
   },
   "author": "Luca Mamprin",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "vuelidate": "^0.7.6"
   },
