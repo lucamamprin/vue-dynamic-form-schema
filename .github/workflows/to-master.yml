@@ -7,7 +7,7 @@ on:
     branches: [ master ]
 
 jobs:
-  run_eslint_vuese:
+  lint_test:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -17,6 +17,8 @@ jobs:
     - run: npm ci
     - run: npm run lint
     - run: npm test
+  generate_docs:
+    needs: lint_test
     - name: Generating docs files
       if: github.ref == 'refs/heads/master'
       run: npm run docs
@@ -33,6 +35,8 @@ jobs:
       uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
+  npm_publish:
+    needs: lint_test
     - name: Publish to npm
       if: github.ref == 'refs/heads/master'
       run: npm publish
