@@ -36,8 +36,8 @@ jobs:
       - name: Publishing to NPM
         if: github.ref == 'refs/heads/master'
         run: |
-          npm config set '//registry.npmjs.org/:_authToken' "${{ secrets.NPM_TOKEN }}"
+          npm config set '//registry.npmjs.org/:_authToken' "${{ secrets.NPM_AUTH_TOKEN }}"
           npm publish --tag ${{ github.event.release.target_commitish }}
           npm publish
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
