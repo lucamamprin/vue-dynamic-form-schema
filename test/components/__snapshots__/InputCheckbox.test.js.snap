@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InputCheckbox mounts correctly 1`] = `
+<div class="input floating-label">
+  <div class="position-relative"><input aria-describedby="checkme-describe " name="checkme" id="check" placeholder=" " aria-labelledby="label-checkme" aria-invalid="false" aria-required="false" class=""> <label id="label-checkme" for="check">Check me out</label></div>
+  <!---->
+  <!---->
+</div>
+`;
