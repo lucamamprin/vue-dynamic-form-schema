@@ -1,9 +1,61 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`InputCheckbox can be disabled 1`] = `
+<div class="position-relative">
+  <div class="input checkbox is-focused"><input id="check" type="checkbox" name="checkme" aria-describedby="checkme-describe" aria-labelledby="label-check" aria-invalid="false" class="" value="" disabled="disabled"> <label id="label-check" for="check" data-cy="checkme" class=""><span class="d-block">
+        Check me out
+      </span></label>
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`InputCheckbox can be set to invalid 1`] = `
+<div class="position-relative">
+  <div class="input checkbox is-focused"><input id="check" type="checkbox" name="checkme" aria-describedby="checkme-describe" aria-labelledby="label-check" aria-invalid="true" class="" value=""> <label id="label-check" for="check" data-cy="checkme" class=""><span class="d-block">
+        Check me out
+      </span></label>
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`InputCheckbox can be set to required 1`] = `
+<div class="position-relative">
+  <div class="input checkbox is-focused"><input id="check" type="checkbox" name="checkme" aria-describedby="checkme-describe" aria-labelledby="label-check" aria-invalid="false" class="" value="" aria-required="true"> <label id="label-check" for="check" data-cy="checkme" class=""><span class="d-block">
+        Check me out
+      </span></label>
+    <!---->
+  </div>
+</div>
+`;
+
 exports[`InputCheckbox mounts correctly 1`] = `
-<div class="input floating-label">
-  <div class="position-relative"><input aria-describedby="checkme-describe " name="checkme" id="check" placeholder=" " aria-labelledby="label-checkme" aria-invalid="false" aria-required="false" class=""> <label id="label-checkme" for="check">Check me out</label></div>
-  <!---->
-  <!---->
+<div class="position-relative">
+  <div class="input checkbox is-focused"><input id="check" type="checkbox" name="checkme" aria-describedby="checkme-describe" aria-labelledby="label-check" aria-invalid="false" class="" value=""> <label id="label-check" for="check" data-cy="checkme" class=""><span class="d-block">
+        Check me out
+      </span></label>
+    <!---->
+  </div>
+</div>
+`;
+
+exports[`InputCheckbox shows error message 1`] = `
+<div class="position-relative">
+  <div class="input checkbox is-focused"><input id="check" type="checkbox" name="checkme" aria-describedby="checkme-describe" aria-labelledby="label-check" aria-invalid="false" class="missingBackground" value=""> <label id="label-check" for="check" data-cy="checkme" class=""><span class="d-block">
+        Check me out
+      </span></label> <span id="checkme-describe" class="help m-0   d-inline-block">
+  You didn't check me
+</span></div>
+</div>
+`;
+
+exports[`InputCheckbox value can be set 1`] = `
+<div class="position-relative">
+  <div class="input checkbox is-focused"><input id="check" type="checkbox" name="checkme" aria-describedby="checkme-describe" aria-labelledby="label-check" aria-invalid="false" class="" value="my_custom_value"> <label id="label-check" for="check" data-cy="checkme" class=""><span class="d-block">
+        Check me out
+      </span></label>
+    <!---->
+  </div>
 </div>
 `;

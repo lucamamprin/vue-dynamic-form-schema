@@ -1,35 +1,34 @@
 <template>
   <div class="position-relative">
     <div
-      :class="{'mt-0': resetMarginTop, 'inverted': darkMode}"
+      :class="{ 'mt-0': resetMarginTop, inverted: darkMode }"
       class="input checkbox is-focused"
     >
       <input
         :id="id"
+        :ref="id"
         type="checkbox"
         :name="name"
         :value="value"
         :disabled="disabled"
         :aria-describedby="describedBy"
-        :class="{'missingBackground': hasError && error}"
+        :class="{ missingBackground: hasError && error }"
         :aria-labelledby="`label-${id}`"
         :aria-required="required"
         :aria-invalid="invalid.toString()"
         v-on="{
           ...$listeners,
-          change: event => $emit('input', event.target.checked)
+          change: (event) => $emit('input', event.target.checked),
         }"
-      >
+      />
 
       <label
         :id="`label-${id}`"
         :for="id"
         :data-cy="name"
-        :class="{'text-white': darkMode}"
+        :class="{ 'text-white': darkMode }"
       >
-        <span
-          class="d-block"
-        >
+        <span class="d-block">
           {{ label }}
         </span>
       </label>
@@ -44,7 +43,7 @@
 </template>
 
 <script>
-const ErrorMessage = () => import("./Atoms/ErrorMessage")
+const ErrorMessage = () => import("./Atoms/ErrorMessage");
 
 export default {
   name: "InputCheckbox",
@@ -87,18 +86,6 @@ export default {
       type: Boolean,
       default: false,
     },
-    min: {
-      type: null,
-      default: 0,
-    },
-    max: {
-      type: null,
-      default: "",
-    },
-    minLength: {
-      type: Number,
-      default: 0,
-    },
     darkMode: {
       type: Boolean,
       default: false,
@@ -111,5 +98,5 @@ export default {
       default: false,
     },
   },
-}
+};
 </script>
