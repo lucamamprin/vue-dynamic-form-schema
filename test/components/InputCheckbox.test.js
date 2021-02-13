@@ -1,5 +1,5 @@
 import Vue from "vue"
-import { shallowMount, mount } from "@vue/test-utils"
+import { shallowMount } from "@vue/test-utils"
 import InputCheckbox from "../../src/components/FormElements/InputCheckbox.vue"
 
 const props = {

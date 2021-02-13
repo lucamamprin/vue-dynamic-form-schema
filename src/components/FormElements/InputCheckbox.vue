@@ -20,7 +20,7 @@
           ...$listeners,
           change: (event) => $emit('input', event.target.checked),
         }"
-      />
+      >
 
       <label
         :id="`label-${id}`"
@@ -43,7 +43,7 @@
 </template>
 
 <script>
-const ErrorMessage = () => import("./Atoms/ErrorMessage");
+const ErrorMessage = () => import("./Atoms/ErrorMessage")
 
 export default {
   name: "InputCheckbox",
@@ -98,5 +98,5 @@ export default {
       default: false,
     },
   },
-};
+}
 </script>
