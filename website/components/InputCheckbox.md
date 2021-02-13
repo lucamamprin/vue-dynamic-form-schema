@@ -14,9 +14,6 @@
 |name|-|`String`|`true`|-|
 |error|-|`String`|`false`|-|
 |hasError|-|`Boolean`|`false`|false|
-|min|-|—|`false`|0|
-|max|-|—|`false`|-|
-|minLength|-|`Number`|`false`|0|
 |darkMode|-|`Boolean`|`false`|false|
 |invalid|-|`Boolean`|`false`|-|
 |required|-|`Boolean`|`false`|false|
