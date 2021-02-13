@@ -2,35 +2,41 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ master ]
+    branches: [master]
   pull_request:
-    branches: [ master ]
+    branches: [master]
 
 jobs:
-  run_eslint_vuese:
+  test_lint_publish:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-node@v1
-      with:
-        node-version: 14
-    - run: npm ci
-    - run: npm run lint
-    - run: npm test
-    - name: Generating docs files
-      if: github.ref == 'refs/heads/master'
-      run: npm run docs
-    - name: Committing docs files
-      if: github.ref == 'refs/heads/master'
-      run: |
-        echo ${{ github.ref }}
-        git add website
-        git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-        git config --local user.name "github-actions[bot]"
-        git commit -m "CI: Automated docs push" -a | exit 0
-    - name: Pushing docs changes to master
-      if: github.ref == 'refs/heads/master'
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-    
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14
+      - run: npm ci
+      - run: npm run lint
+      - run: npm test
+      - name: Generating docs files
+        if: github.ref == 'refs/heads/master'
+        run: npm run docs
+      - name: Committing docs files
+        if: github.ref == 'refs/heads/master'
+        run: |
+          echo ${{ github.ref }}
+          git add website
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git commit -m "CI: Automated docs push" -a | exit 0
+      - name: Pushing docs changes to master
+        if: github.ref == 'refs/heads/master'
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Publishing to NPM
+        if: github.ref == 'refs/heads/master'
+        run: |
+          npm config set '//registry.npmjs.org/:_authToken' "${{ secrets.NPM_AUTH_TOKEN }}"
+          npm publish --tag=alpha
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
