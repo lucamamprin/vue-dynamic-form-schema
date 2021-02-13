@@ -30,7 +30,7 @@ jobs:
           git commit -m "CI: Automated docs push" -a | exit 0
       - name: Pushing docs changes to main
         if: github.ref == 'refs/heads/main'
-        uses: ad-m/github-push-action@main
+        uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
       - name: Publishing to NPM
