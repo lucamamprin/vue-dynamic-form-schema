@@ -36,4 +36,21 @@ describe("InputRadioGroup", () => {
     expect(wrapper.vm).toBeTruthy()
     expect(wrapper.html()).toMatchSnapshot()
   })
+  
+  test("validates options", () => {
+    const validator = InputRadioGroup.props.options.validator
+    expect(validator(props.options)).toBe(true)
+  })
+  
+  test("validates wrong options", () => {
+    const wrongOptions =  [
+      {
+        "wrong-label": "Cinema",
+        "wrong-value": "cinema",
+      },
+    ]
+
+    const validator = InputRadioGroup.props.options.validator
+    expect(validator(wrongOptions)).toBe(false)
+  })
 })
