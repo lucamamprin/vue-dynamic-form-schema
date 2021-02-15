@@ -36,12 +36,22 @@ describe("InputRadioGroup", () => {
     expect(wrapper.vm).toBeTruthy()
     expect(wrapper.html()).toMatchSnapshot()
   })
+
+  test("can be disabled", async () => {
+    await wrapper.setProps({
+      disabled: true,
+    })
+
+    await Vue.nextTick()
+    
+    expect(wrapper.html()).toMatchSnapshot()
+  })
   
   test("validates options", () => {
     const validator = InputRadioGroup.props.options.validator
     expect(validator(props.options)).toBe(true)
   })
-  
+
   test("validates wrong options", () => {
     const wrongOptions =  [
       {
@@ -49,8 +59,19 @@ describe("InputRadioGroup", () => {
         "wrong-value": "cinema",
       },
     ]
-
+    
     const validator = InputRadioGroup.props.options.validator
     expect(validator(wrongOptions)).toBe(false)
+  })
+  
+  test("shows error message", async () => {
+    await wrapper.setProps({
+      hasError: true,
+      errorMessage: "You didn't select any hobby",
+    })
+
+    await Vue.nextTick()
+
+    expect(wrapper.html()).toMatchSnapshot()
   })
 })

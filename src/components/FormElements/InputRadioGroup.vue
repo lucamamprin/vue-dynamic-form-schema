@@ -24,7 +24,7 @@
             position="static"
             :inline-error="true"
             class="text-nowrap"
-            :error-message="error"
+            :error-message="errorMessage"
           />
         </span>
       </legend>
