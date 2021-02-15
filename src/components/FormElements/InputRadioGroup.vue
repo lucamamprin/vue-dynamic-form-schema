@@ -5,7 +5,6 @@
   >
     <fieldset
       :id="id"
-      :name="fieldSetName"
       :aria-required="required.toString()"
       :aria-describedby="describedBy"
       role="radiogroup"
@@ -68,14 +67,10 @@ export default {
   },
   inheritAttrs: false,
   props: {
-    fieldSetName: {
-      type: String,
-      required: true,
-    },
     errorCondition: Boolean,
     value: {
       type: Object,
-      required: true,
+      default: () => {},
     },
     id: {
       type: String,
