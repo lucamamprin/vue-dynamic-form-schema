@@ -1,14 +1,40 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`InputRadioGroup can be disabled 1`] = `
+<div class="input radio">
+  <fieldset id="user-hobby" aria-describedby="hobby-describe" role="radiogroup" class="p-0 m-0">
+    <legend class="d-flex align-items-center mb-5"><span class="h6 d-inline-block text-primary">What is your hobby?</span>
+      <!---->
+    </legend>
+    <div class="radio-container-input"><input id="user-hobby-0" type="radio" name="hobby" aria-invalid="false" aria-labelledby="label-user-hobby-0" class="" value="cinema" disabled="disabled"> <label id="label-user-hobby-0" for="user-hobby-0" class="">Cinema</label></div>
+    <div class="radio-container-input"><input id="user-hobby-1" type="radio" name="hobby" aria-invalid="false" aria-labelledby="label-user-hobby-1" class="" value="bird_watching" disabled="disabled"> <label id="label-user-hobby-1" for="user-hobby-1" class="">Bird watching</label></div>
+    <div class="radio-container-input"><input id="user-hobby-2" type="radio" name="hobby" aria-invalid="false" aria-labelledby="label-user-hobby-2" class="" value="coding" disabled="disabled"> <label id="label-user-hobby-2" for="user-hobby-2" class="">Coding</label></div>
+  </fieldset>
+</div>
+`;
+
 exports[`InputRadioGroup mounts correctly 1`] = `
 <div class="input radio">
-  <fieldset id="user-hobby" aria-required="false" aria-describedby="hobby-describe" role="radiogroup" class="p-0 m-0">
+  <fieldset id="user-hobby" aria-describedby="hobby-describe" role="radiogroup" class="p-0 m-0">
     <legend class="d-flex align-items-center mb-5"><span class="h6 d-inline-block text-primary">What is your hobby?</span>
       <!---->
     </legend>
     <div class="radio-container-input"><input id="user-hobby-0" type="radio" name="hobby" aria-invalid="false" aria-labelledby="label-user-hobby-0" class="" value="cinema"> <label id="label-user-hobby-0" for="user-hobby-0" class="">Cinema</label></div>
     <div class="radio-container-input"><input id="user-hobby-1" type="radio" name="hobby" aria-invalid="false" aria-labelledby="label-user-hobby-1" class="" value="bird_watching"> <label id="label-user-hobby-1" for="user-hobby-1" class="">Bird watching</label></div>
-    <div class="radio-container-input"><input id="user-hobby-2" type="radio" name="hobby" aria-invalid="false" aria-labelledby="label-user-hobby-2" class="" value="programming"> <label id="label-user-hobby-2" for="user-hobby-2" class="">Programmazione</label></div>
+    <div class="radio-container-input"><input id="user-hobby-2" type="radio" name="hobby" aria-invalid="false" aria-labelledby="label-user-hobby-2" class="" value="coding"> <label id="label-user-hobby-2" for="user-hobby-2" class="">Coding</label></div>
+  </fieldset>
+</div>
+`;
+
+exports[`InputRadioGroup shows error message 1`] = `
+<div class="input radio">
+  <fieldset id="user-hobby" aria-describedby="hobby-describe" role="radiogroup" class="p-0 m-0">
+    <legend class="d-flex align-items-center mb-5"><span class="h6 d-inline-block text-primary">What is your hobby?</span> <span><span id="hobby-describe" class="help m-0 text-nowrap ml-1 position-static d-inline-block">
+  You didn't select any hobby
+</span></span></legend>
+    <div class="radio-container-input"><input id="user-hobby-0" type="radio" name="hobby" aria-invalid="false" aria-labelledby="label-user-hobby-0" class="" value="cinema"> <label id="label-user-hobby-0" for="user-hobby-0" class="">Cinema</label></div>
+    <div class="radio-container-input"><input id="user-hobby-1" type="radio" name="hobby" aria-invalid="false" aria-labelledby="label-user-hobby-1" class="" value="bird_watching"> <label id="label-user-hobby-1" for="user-hobby-1" class="">Bird watching</label></div>
+    <div class="radio-container-input"><input id="user-hobby-2" type="radio" name="hobby" aria-invalid="false" aria-labelledby="label-user-hobby-2" class="" value="coding"> <label id="label-user-hobby-2" for="user-hobby-2" class="">Coding</label></div>
   </fieldset>
 </div>
 `;
