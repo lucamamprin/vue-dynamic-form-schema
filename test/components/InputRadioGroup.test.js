@@ -53,25 +53,4 @@ describe("InputRadioGroup", () => {
     const validator = InputRadioGroup.props.options.validator
     expect(validator(wrongOptions)).toBe(false)
   })
-  
-  test("can be disabled", async () => {
-    await wrapper.setProps({
-      disabled: true,
-    })
-
-    await Vue.nextTick()
-    
-    expect(wrapper.html()).toMatchSnapshot()
-  })
-  
-  test("shows error message", async () => {
-    await wrapper.setProps({
-      hasError: true,
-      errorMessage: "You didn't select any hobby",
-    })
-
-    await Vue.nextTick()
-
-    expect(wrapper.html()).toMatchSnapshot()
-  })
 })

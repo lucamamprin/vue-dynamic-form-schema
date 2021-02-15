@@ -5,6 +5,7 @@
   >
     <fieldset
       :id="id"
+      :aria-required="required.toString()"
       :aria-describedby="describedBy"
       role="radiogroup"
       class="p-0 m-0"
@@ -23,7 +24,7 @@
             position="static"
             :inline-error="true"
             class="text-nowrap"
-            :error-message="errorMessage"
+            :error-message="error"
           />
         </span>
       </legend>
@@ -40,7 +41,6 @@
           :value="radio.value"
           :disabled="disabled"
           :aria-invalid="invalid.toString()"
-          :required="required"
           :aria-labelledby="getId(idx, true)"
           :class="{'missingBackground': hasError && error}"
           @change="$emit('input', radio)"
