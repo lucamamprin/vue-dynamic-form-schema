@@ -5,9 +5,8 @@
 <!-- @vuese:InputRadioGroup:props:start -->
 |Name|Description|Type|Required|Default|
 |---|---|---|---|---|
-|fieldSetName|-|`String`|`true`|-|
 |errorCondition|-|`Boolean`|`false`|-|
-|value|-|`Object`|`true`|-|
+|value|-|`Object`|`false`|-|
 |id|-|`String`|`true`|-|
 |describedBy|-|`String`|`true`|-|
 |disabled|-|`Boolean`|`false`|false|
