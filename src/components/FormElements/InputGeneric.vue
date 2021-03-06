@@ -79,6 +79,7 @@
 </template>
 
 <script>
+import props from "../../mixins/props"
 import { removeStar } from "../../utilities/removeStar"
 const MaxLength = () => import("./Atoms/MaxLength")
 const ErrorMessage = () => import("./Atoms/ErrorMessage")
@@ -90,6 +91,9 @@ export default {
     MaxLength,
     ErrorMessage,
   },
+  mixins: [
+    props,
+  ],
   computed: {
     hasLeftColSlot () {
       return this.$slots.leftCol
@@ -105,41 +109,13 @@ export default {
     removeStar,
   },
   props: {
-    floatedLabel: {
-      type: Boolean,
-      default: false,
-    },
-    id: {
-      type: String,
-      required: true,
-    },
-    describedBy: {
-      type: String,
-      required: true,
-    },
     value: {
       type: [
         String, Number,
       ],
       default: null,
     },
-    disabled: {
-      type: Boolean,
-      default: false,
-    },
-    name: {
-      type: String,
-      required: true,
-    },
-    label: {
-      type: String,
-      required: true,
-    },
-    errorMessage: {
-      type: String,
-      default: null,
-    },
-    hasError: {
+    floatedLabel: {
       type: Boolean,
       default: false,
     },
@@ -167,20 +143,9 @@ export default {
       type: Boolean,
       default: false,
     },
-    darkMode: {
-      type: Boolean,
-      default: false,
-    },
     placeholderText: {
       type: String,
       default: " ",
-    },
-    invalid: {
-      type: Boolean,
-    },
-    required: {
-      type: Boolean,
-      default: false,
     },
     uppercase: {
       type: Boolean,

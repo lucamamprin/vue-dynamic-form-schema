@@ -53,29 +53,17 @@
 </template>
 
 <script>
+import props from "../../mixins/props"
 const ErrorMessage = () => import("./Atoms/ErrorMessage")
 
 export default {
   components: {
     ErrorMessage,
   },
+  mixins: [
+    props,
+  ],
   props: {
-    id: {
-      type: String,
-      required: true,
-    },
-    describedBy: {
-      type: String,
-      required: true,
-    },
-    name: {
-      type: String,
-      required: true,
-    },
-    label: {
-      type: String,
-      required: true,
-    },
     firstValue: {
       type: String,
       default: "",
@@ -85,10 +73,6 @@ export default {
         String, Number, Object,
       ],
       default: null,
-    },
-    disabled: {
-      type: Boolean,
-      default: false,
     },
     options: {
       type: Array,
@@ -100,22 +84,6 @@ export default {
           }) === undefined
         )
       },
-    },
-    hasError: { type: Boolean, default: false },
-    errorMessage: { 
-      type: String,
-      default: "",
-    },
-    darkMode: {
-      type: Boolean,
-      default: false,
-    },
-    invalid: {
-      type: Boolean,
-    },
-    required: {
-      type: Boolean,
-      default: false,
     },
     resetMarginTop: {
       type: Boolean,

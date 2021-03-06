@@ -56,18 +56,19 @@
     />
 
     <div
-      v-if="hasError && error"
+      v-if="hasError && errorMessage"
       class="mb-13"
     >
       <error-message
         :id="describedBy"
-        :error-message="error"
+        :error-message="errorMessage"
       />
     </div>
   </div>
 </template>
 
 <script>
+import props from "../../mixins/props"
 import { removeStar } from "../../utilities/removeStar"
 
 const MaxLength = () => import("./Atoms/MaxLength")
@@ -92,7 +93,17 @@ export default {
     MaxLength,
     ErrorMessage,
   },
+  mixins: [
+    props,
+  ],
   props: {
+    value: {
+      type: [
+        String,
+        Number,
+      ],
+      default: "",
+    },
     // textarea specific props
     resizeTextArea: {
       type: Boolean,
@@ -110,47 +121,6 @@ export default {
       type: String,
       default: "",
     },
-    disabled: {
-      type: Boolean,
-      default: false,
-    },
-
-    // common with BaseInput
-    floatedLabel: {
-      type: Boolean,
-      default: false,
-    },
-    id: {
-      type: String,
-      required: true,
-    },
-    describedBy: {
-      type: String,
-      required: true,
-    },
-    value: {
-      type: [
-        String,
-        Number,
-      ],
-      default: "",
-    },
-    name: {
-      type: String,
-      required: true,
-    },
-    label: {
-      type: String,
-      required: true,
-    },
-    error: {
-      type: String,
-      default: "",
-    },
-    hasError: {
-      type: Boolean,
-      default: false,
-    },
     minLength: {
       type: Number,
       default: 0,
@@ -159,7 +129,9 @@ export default {
       type: Number,
       default: 0,
     },
-    darkMode: {
+
+    // common with BaseInput
+    floatedLabel: {
       type: Boolean,
       default: false,
     },
@@ -170,13 +142,6 @@ export default {
     placeholderText: {
       type: String,
       default: " ",
-    },
-    invalid: {
-      type: Boolean,
-    },
-    required: {
-      type: Boolean,
-      default: false,
     },
     resetMarginTop: {
       type: Boolean,

@@ -12,7 +12,7 @@
         :value="value"
         :disabled="disabled"
         :aria-describedby="describedBy"
-        :class="{ missingBackground: hasError && error }"
+        :class="{ missingBackground: hasError && errorMessage }"
         :aria-labelledby="`label-${id}`"
         :aria-required="required"
         :aria-invalid="invalid.toString()"
@@ -34,15 +34,16 @@
       </label>
 
       <error-message
-        v-if="hasError && error"
+        v-if="hasError && errorMessage"
         :id="describedBy"
-        :error-message="error"
+        :error-message="errorMessage"
       />
     </div>
   </div>
 </template>
 
 <script>
+import props from "../../mixins/props"
 const ErrorMessage = () => import("./Atoms/ErrorMessage")
 
 export default {
@@ -51,49 +52,16 @@ export default {
     ErrorMessage,
   },
   inheritAttrs: false,
+  mixins: [
+    props,
+  ],
   props: {
-    id: {
-      type: String,
-      required: true,
-    },
-    describedBy: {
-      type: String,
-      required: true,
-    },
     value: {
       type: null, // accept everything
       default: null,
     },
-    disabled: {
-      type: Boolean,
-      default: false,
-    },
-    label: {
-      type: String,
-      required: true,
-    },
-    resetMarginTop: Boolean,
-    name: {
-      type: String,
-      required: true,
-    },
-    error: {
-      type: String,
-      required: false,
-      default: "",
-    },
-    hasError: {
-      type: Boolean,
-      default: false,
-    },
-    darkMode: {
-      type: Boolean,
-      default: false,
-    },
-    invalid: {
-      type: Boolean,
-    },
-    required: {
+    
+    resetMarginTop: {
       type: Boolean,
       default: false,
     },
