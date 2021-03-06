@@ -5,27 +5,13 @@
 <!-- @vuese:InputTextarea:props:start -->
 |Name|Description|Type|Required|Default|
 |---|---|---|---|---|
-|resizeTextArea|textarea specific props|`Boolean`|`false`|true|
+|value|-|`String` /  `Number`|`false`|-|
+|resizeTextArea|-|`Boolean`|`false`|true|
 |rows|-|`Number`|`false`|2|
 |cols|-|`Number`|`false`|20|
 |areaClass|-|`String`|`false`|-|
-|disabled|-|`Boolean`|`false`|false|
-|floatedLabel|common with BaseInput|`Boolean`|`false`|false|
-|id|-|`String`|`true`|-|
-|describedBy|-|`String`|`true`|-|
-|value|-|`String` /  `Number`|`false`|-|
-|name|-|`String`|`true`|-|
-|label|-|`String`|`true`|-|
-|error|-|`String`|`false`|-|
-|hasError|-|`Boolean`|`false`|false|
-|minLength|-|`Number`|`false`|0|
+|minLength|overrides from shared props|`Number`|`false`|0|
 |maxLength|-|`Number`|`false`|0|
-|darkMode|-|`Boolean`|`false`|false|
-|showCharacterCount|-|`Boolean`|`false`|true|
-|placeholderText|-|`String`|`false`| |
-|invalid|-|`Boolean`|`false`|-|
-|required|-|`Boolean`|`false`|false|
-|resetMarginTop|-|`Boolean`|`false`|false|
 
 <!-- @vuese:InputTextarea:props:end -->
 
@@ -38,5 +24,16 @@
 |input|-|-|
 
 <!-- @vuese:InputTextarea:events:end -->
+
+
+## MixIns
+
+<!-- @vuese:InputTextarea:mixIns:start -->
+|MixIn|
+|---|
+|props|
+|textInputs|
+
+<!-- @vuese:InputTextarea:mixIns:end -->
 
 
