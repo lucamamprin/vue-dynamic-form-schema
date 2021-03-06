@@ -1,7 +1,7 @@
 <template>
   <div class="position-relative">
     <div
-      :class="{ 'mt-0': resetMarginTop, inverted: darkMode }"
+      :class="{ inverted: darkMode }"
       class="input checkbox is-focused"
     >
       <input
@@ -59,11 +59,6 @@ export default {
     value: {
       type: null, // accept everything
       default: null,
-    },
-    
-    resetMarginTop: {
-      type: Boolean,
-      default: false,
     },
   },
 }

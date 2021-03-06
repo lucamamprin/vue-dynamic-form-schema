@@ -1,7 +1,7 @@
 <template>
   <div
     class="input select floating-label floating-label-floated"
-    :class="{'input-transparent': darkMode, 'mt-0': resetMarginTop}"
+    :class="{'input-transparent': darkMode,}"
   >
     <select
       :id="id"
@@ -75,10 +75,6 @@ export default {
         String, Number, Object,
       ],
       default: null,
-    },
-    resetMarginTop: {
-      type: Boolean,
-      default: false,
     },
   },
   data () {

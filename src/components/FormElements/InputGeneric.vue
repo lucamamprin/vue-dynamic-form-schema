@@ -4,7 +4,6 @@
     :class="[
       {
         'input-transparent': darkMode,
-        'mt-0': resetMarginTop,
         'floating-label-floated': value || floatedLabel,
       },
       $attrs.type,
@@ -138,10 +137,6 @@ export default {
     showCharacterCount: {
       type: Boolean,
       default: true,
-    },
-    resetMarginTop: {
-      type: Boolean,
-      default: false,
     },
     placeholderText: {
       type: String,

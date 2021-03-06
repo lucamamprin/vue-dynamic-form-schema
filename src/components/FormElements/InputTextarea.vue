@@ -1,7 +1,7 @@
 <template>
   <div
     class="input textarea floating-label"
-    :class="{'input-transparent': darkMode, 'mt-0': resetMarginTop, 'floating-label-floated': typedText.length || floatedLabel}"
+    :class="{'input-transparent': darkMode, 'floating-label-floated': typedText.length || floatedLabel}"
   >
     <div :class="areaClass">
       <textarea
@@ -142,10 +142,6 @@ export default {
     placeholderText: {
       type: String,
       default: " ",
-    },
-    resetMarginTop: {
-      type: Boolean,
-      default: false,
     },
   },
   computed: {
