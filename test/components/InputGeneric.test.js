@@ -111,6 +111,7 @@ describe("multiple input types", () => {
         describedBy: `${type}-describe`,
         name: `${type}-name`,
         label: `${type}-label`,
+        type,
       }
 
       wrapper = shallowMount(InputGeneric, {

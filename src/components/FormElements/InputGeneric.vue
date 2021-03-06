@@ -12,6 +12,7 @@
     <div class="position-relative">
       <input
         v-bind="$attrs"
+        :type="type"
         :class="{
           'border-danger': hasError,
         }"
@@ -115,6 +116,10 @@ export default {
         String, Number,
       ],
       default: null,
+    },
+    type: {
+      type: String,
+      default: "text",
     },
     min: {
       type: null,
