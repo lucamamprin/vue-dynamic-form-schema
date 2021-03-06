@@ -1,6 +1,8 @@
 import Vue from "vue"
 import { shallowMount } from "@vue/test-utils"
 import InputRadioGroup from "../../src/components/FormElements/InputRadioGroup.vue"
+import options from "../../src/mixins/options"
+const optValidator = options.props.options.validator
 
 const props = {
   name: "hobby",
@@ -48,8 +50,7 @@ describe("InputRadioGroup", () => {
   })
   
   test("validates options", () => {
-    const validator = InputRadioGroup.props.options.validator
-    expect(validator(props.options)).toBe(true)
+    expect(optValidator(props.options)).toBe(true)
   })
 
   test("validates wrong options", () => {
@@ -59,9 +60,7 @@ describe("InputRadioGroup", () => {
         "wrong-value": "cinema",
       },
     ]
-    
-    const validator = InputRadioGroup.props.options.validator
-    expect(validator(wrongOptions)).toBe(false)
+    expect(optValidator(wrongOptions)).toBe(false)
   })
   
   test("shows error message", async () => {

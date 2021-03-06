@@ -59,6 +59,7 @@
 
 <script>
 import props from "../../mixins/props"
+import options from "../../mixins/options"
 const ErrorMessage = () => import("./Atoms/ErrorMessage")
 
 export default {
@@ -68,23 +69,13 @@ export default {
   },
   mixins: [
     props,
+    options,
   ],
   inheritAttrs: false,
   props: {
     value: {
       type: Object,
       default: () => {},
-    },
-    options: {
-      type: Array,
-      required: true,
-      validator (opts) {
-        return (
-          opts.find(opt => {
-            return !("label" in opt) || !("value" in opt)
-          }) === undefined
-        )
-      },
     },
   },
   methods: {
