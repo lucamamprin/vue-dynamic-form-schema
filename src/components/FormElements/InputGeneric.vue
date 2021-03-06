@@ -31,11 +31,6 @@
         :aria-required="required.toString()"
         v-on="{
           ...$listeners,
-          input: (event) =>
-            $emit(
-              'input',
-              uppercase ? event.target.value.toUpperCase() : event.target.value
-            ),
         }"
       >
       <label
@@ -128,10 +123,6 @@ export default {
     max: {
       type: null,
       default: null,
-    },
-    uppercase: {
-      type: Boolean,
-      default: false,
     },
   },
 }
