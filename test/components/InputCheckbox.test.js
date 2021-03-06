@@ -62,7 +62,7 @@ describe("InputCheckbox", () => {
 
   test("shows error message", async () => {
     await wrapper.setProps({
-      error: "You didn't check me",
+      errorMessage: "You didn't check me",
       hasError: true,
     })
 

@@ -4,7 +4,6 @@
     :class="[
       {
         'input-transparent': darkMode,
-        'mt-0': resetMarginTop,
         'floating-label-floated': value || floatedLabel,
       },
       $attrs.type,
@@ -13,6 +12,7 @@
     <div class="position-relative">
       <input
         v-bind="$attrs"
+        :type="type"
         :class="{
           'border-danger': hasError,
         }"
@@ -31,11 +31,6 @@
         :aria-required="required.toString()"
         v-on="{
           ...$listeners,
-          input: (event) =>
-            $emit(
-              'input',
-              uppercase ? event.target.value.toUpperCase() : event.target.value
-            ),
         }"
       >
       <label
@@ -79,6 +74,8 @@
 </template>
 
 <script>
+import props from "../../mixins/props"
+import textInputs from "../../mixins/textInputs"
 import { removeStar } from "../../utilities/removeStar"
 const MaxLength = () => import("./Atoms/MaxLength")
 const ErrorMessage = () => import("./Atoms/ErrorMessage")
@@ -90,6 +87,10 @@ export default {
     MaxLength,
     ErrorMessage,
   },
+  mixins: [
+    props,
+    textInputs,
+  ],
   computed: {
     hasLeftColSlot () {
       return this.$slots.leftCol
@@ -105,43 +106,15 @@ export default {
     removeStar,
   },
   props: {
-    floatedLabel: {
-      type: Boolean,
-      default: false,
-    },
-    id: {
-      type: String,
-      required: true,
-    },
-    describedBy: {
-      type: String,
-      required: true,
-    },
     value: {
       type: [
         String, Number,
       ],
       default: null,
     },
-    disabled: {
-      type: Boolean,
-      default: false,
-    },
-    name: {
+    type: {
       type: String,
-      required: true,
-    },
-    label: {
-      type: String,
-      required: true,
-    },
-    errorMessage: {
-      type: String,
-      default: null,
-    },
-    hasError: {
-      type: Boolean,
-      default: false,
+      default: "text",
     },
     min: {
       type: null,
@@ -150,41 +123,6 @@ export default {
     max: {
       type: null,
       default: null,
-    },
-    minLength: {
-      type: Number,
-      default: null,
-    },
-    maxLength: {
-      type: Number,
-      default: null,
-    },
-    showCharacterCount: {
-      type: Boolean,
-      default: true,
-    },
-    resetMarginTop: {
-      type: Boolean,
-      default: false,
-    },
-    darkMode: {
-      type: Boolean,
-      default: false,
-    },
-    placeholderText: {
-      type: String,
-      default: " ",
-    },
-    invalid: {
-      type: Boolean,
-    },
-    required: {
-      type: Boolean,
-      default: false,
-    },
-    uppercase: {
-      type: Boolean,
-      default: false,
     },
   },
 }

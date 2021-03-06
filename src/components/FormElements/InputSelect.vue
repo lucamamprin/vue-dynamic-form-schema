@@ -1,7 +1,7 @@
 <template>
   <div
     class="input select floating-label floating-label-floated"
-    :class="{'input-transparent': darkMode, 'mt-0': resetMarginTop}"
+    :class="{'input-transparent': darkMode,}"
   >
     <select
       :id="id"
@@ -53,29 +53,19 @@
 </template>
 
 <script>
+import props from "../../mixins/props"
+import options from "../../mixins/options"
 const ErrorMessage = () => import("./Atoms/ErrorMessage")
 
 export default {
   components: {
     ErrorMessage,
   },
+  mixins: [
+    props,
+    options,
+  ],
   props: {
-    id: {
-      type: String,
-      required: true,
-    },
-    describedBy: {
-      type: String,
-      required: true,
-    },
-    name: {
-      type: String,
-      required: true,
-    },
-    label: {
-      type: String,
-      required: true,
-    },
     firstValue: {
       type: String,
       default: "",
@@ -85,41 +75,6 @@ export default {
         String, Number, Object,
       ],
       default: null,
-    },
-    disabled: {
-      type: Boolean,
-      default: false,
-    },
-    options: {
-      type: Array,
-      required: true,
-      validator (opts) {
-        return (
-          opts.find(opt => {
-            return !("label" in opt) || !("value" in opt)
-          }) === undefined
-        )
-      },
-    },
-    hasError: { type: Boolean, default: false },
-    errorMessage: { 
-      type: String,
-      default: "",
-    },
-    darkMode: {
-      type: Boolean,
-      default: false,
-    },
-    invalid: {
-      type: Boolean,
-    },
-    required: {
-      type: Boolean,
-      default: false,
-    },
-    resetMarginTop: {
-      type: Boolean,
-      default: false,
     },
   },
   data () {

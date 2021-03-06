@@ -58,6 +58,8 @@
 </template>
 
 <script>
+import props from "../../mixins/props"
+import options from "../../mixins/options"
 const ErrorMessage = () => import("./Atoms/ErrorMessage")
 
 export default {
@@ -65,64 +67,15 @@ export default {
   components: {
     ErrorMessage,
   },
+  mixins: [
+    props,
+    options,
+  ],
   inheritAttrs: false,
   props: {
-    errorCondition: Boolean,
     value: {
       type: Object,
       default: () => {},
-    },
-    id: {
-      type: String,
-      required: true,
-    },
-    describedBy: {
-      type: String,
-      required: true,
-    },
-    disabled: {
-      type: Boolean,
-      default: false,
-    },
-
-    // from base select
-    name: {
-      type: String,
-      required: true,
-    },
-    label: {
-      type: String,
-      required: true,
-    },
-    options: {
-      type: Array,
-      required: true,
-      validator (opts) {
-        return (
-          opts.find(opt => {
-            return !("label" in opt) || !("value" in opt)
-          }) === undefined
-        )
-      },
-    },
-    hasError: {
-      type: Boolean,
-      default: false,
-    },
-    errorMessage: {
-      type: String,
-      default: null,
-    },
-    darkMode: {
-      type: Boolean,
-      default: false,
-    },
-    invalid: {
-      type: Boolean,
-    },
-    required: {
-      type: Boolean,
-      default: false,
     },
   },
   methods: {

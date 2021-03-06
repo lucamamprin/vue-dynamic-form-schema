@@ -48,8 +48,14 @@ export default {
   },
   props: {
     // the JSON schema representing the form structure.
-    schema: {type: Object, required: true},
-    value: {type: Object, required: true},
+    schema: {
+      type: Object,
+      required: true,
+    },
+    value: {
+      type: Object,
+      required: true,
+    },
     // A unique string that works as ID for the form.
     // This is useful in case you need two identical forms that have different data (eg: shipping and billing address).
     nameSpace: {

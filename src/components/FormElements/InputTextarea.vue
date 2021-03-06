@@ -1,7 +1,7 @@
 <template>
   <div
     class="input textarea floating-label"
-    :class="{'input-transparent': darkMode, 'mt-0': resetMarginTop, 'floating-label-floated': typedText.length || floatedLabel}"
+    :class="{'input-transparent': darkMode, 'floating-label-floated': typedText.length || floatedLabel}"
   >
     <div :class="areaClass">
       <textarea
@@ -56,18 +56,20 @@
     />
 
     <div
-      v-if="hasError && error"
+      v-if="hasError && errorMessage"
       class="mb-13"
     >
       <error-message
         :id="describedBy"
-        :error-message="error"
+        :error-message="errorMessage"
       />
     </div>
   </div>
 </template>
 
 <script>
+import props from "../../mixins/props"
+import textInputs from "../../mixins/textInputs"
 import { removeStar } from "../../utilities/removeStar"
 
 const MaxLength = () => import("./Atoms/MaxLength")
@@ -92,8 +94,18 @@ export default {
     MaxLength,
     ErrorMessage,
   },
+  mixins: [
+    props,
+    textInputs,
+  ],
   props: {
-    // textarea specific props
+    value: {
+      type: [
+        String,
+        Number,
+      ],
+      default: "",
+    },
     resizeTextArea: {
       type: Boolean,
       default: true,
@@ -110,47 +122,8 @@ export default {
       type: String,
       default: "",
     },
-    disabled: {
-      type: Boolean,
-      default: false,
-    },
 
-    // common with BaseInput
-    floatedLabel: {
-      type: Boolean,
-      default: false,
-    },
-    id: {
-      type: String,
-      required: true,
-    },
-    describedBy: {
-      type: String,
-      required: true,
-    },
-    value: {
-      type: [
-        String,
-        Number,
-      ],
-      default: "",
-    },
-    name: {
-      type: String,
-      required: true,
-    },
-    label: {
-      type: String,
-      required: true,
-    },
-    error: {
-      type: String,
-      default: "",
-    },
-    hasError: {
-      type: Boolean,
-      default: false,
-    },
+    // overrides from shared props
     minLength: {
       type: Number,
       default: 0,
@@ -158,29 +131,6 @@ export default {
     maxLength: {
       type: Number,
       default: 0,
-    },
-    darkMode: {
-      type: Boolean,
-      default: false,
-    },
-    showCharacterCount: {
-      type: Boolean,
-      default: true,
-    },
-    placeholderText: {
-      type: String,
-      default: " ",
-    },
-    invalid: {
-      type: Boolean,
-    },
-    required: {
-      type: Boolean,
-      default: false,
-    },
-    resetMarginTop: {
-      type: Boolean,
-      default: false,
     },
   },
   computed: {
