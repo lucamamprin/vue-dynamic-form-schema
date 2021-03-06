@@ -69,6 +69,7 @@
 
 <script>
 import props from "../../mixins/props"
+import textInputs from "../../mixins/textInputs"
 import { removeStar } from "../../utilities/removeStar"
 
 const MaxLength = () => import("./Atoms/MaxLength")
@@ -95,6 +96,7 @@ export default {
   },
   mixins: [
     props,
+    textInputs,
   ],
   props: {
     value: {
@@ -104,7 +106,6 @@ export default {
       ],
       default: "",
     },
-    // textarea specific props
     resizeTextArea: {
       type: Boolean,
       default: true,
@@ -121,6 +122,8 @@ export default {
       type: String,
       default: "",
     },
+
+    // overrides from shared props
     minLength: {
       type: Number,
       default: 0,
@@ -128,20 +131,6 @@ export default {
     maxLength: {
       type: Number,
       default: 0,
-    },
-
-    // common with BaseInput
-    floatedLabel: {
-      type: Boolean,
-      default: false,
-    },
-    showCharacterCount: {
-      type: Boolean,
-      default: true,
-    },
-    placeholderText: {
-      type: String,
-      default: " ",
     },
   },
   computed: {

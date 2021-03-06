@@ -79,6 +79,7 @@
 
 <script>
 import props from "../../mixins/props"
+import textInputs from "../../mixins/textInputs"
 import { removeStar } from "../../utilities/removeStar"
 const MaxLength = () => import("./Atoms/MaxLength")
 const ErrorMessage = () => import("./Atoms/ErrorMessage")
@@ -92,6 +93,7 @@ export default {
   },
   mixins: [
     props,
+    textInputs,
   ],
   computed: {
     hasLeftColSlot () {
@@ -114,10 +116,6 @@ export default {
       ],
       default: null,
     },
-    floatedLabel: {
-      type: Boolean,
-      default: false,
-    },
     min: {
       type: null,
       default: null,
@@ -125,22 +123,6 @@ export default {
     max: {
       type: null,
       default: null,
-    },
-    minLength: {
-      type: Number,
-      default: null,
-    },
-    maxLength: {
-      type: Number,
-      default: null,
-    },
-    showCharacterCount: {
-      type: Boolean,
-      default: true,
-    },
-    placeholderText: {
-      type: String,
-      default: " ",
     },
     uppercase: {
       type: Boolean,
