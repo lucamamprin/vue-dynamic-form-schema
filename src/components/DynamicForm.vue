@@ -8,7 +8,7 @@
       :key="key"
       :name="key"
       :described-by="generateUniqueIdFromNameSpace(field, key, true)"
-      :value="getValue(field.type, value, key)"
+      :value="field.value"
       :min="validationParam(field.validations.minValue, 0)"
       :max="validationParam(field.validations.maxValue, null)"
       :min-length="validationParam(field.validations.minLength, 0)"
@@ -22,13 +22,13 @@
       :error="errorMessages[key]"
       :show-character-count="field.showCharacterCount"
       :dark-mode="darkMode"
-      :reset-margin-top="firstFormElement === key"
       @input="update(key, $event)"
     />
   </div>
 </template>
 
 <script>
+import { validationMixin } from "vuelidate"
 import {validationRules} from "../parsers/ValidationParser"
 
 const InputGeneric = () => import("./FormElements/InputGeneric")
@@ -46,6 +46,9 @@ export default {
     InputRadioGroup,
     InputCheckbox,
   },
+  mixins: [
+    validationMixin,
+  ],
   props: {
     // the JSON schema representing the form structure.
     schema: {
@@ -54,7 +57,7 @@ export default {
     },
     value: {
       type: Object,
-      required: true,
+      default: () => {},
     },
     // A unique string that works as ID for the form.
     // This is useful in case you need two identical forms that have different data (eg: shipping and billing address).
@@ -161,20 +164,16 @@ export default {
     generateUniqueIdFromNameSpace (field, name, isError = false) {
       return isError ? `${this.nameSpace}-${name}-error` : `${this.nameSpace}-${name}`
     },
+    // add an asterisk in case of required field
+    // wrap the asterisk with a span of aria-hidden=true
+    // this prevents screen readers from reading "star" or "asterisk"
+    // all screen readers will announce if a field is required thanks to the other attrs
     getLabel (field) {
-      // add an asterisk in case of required field
-      // wrap the asterisk with a span of aria-hidden=true
-      // this prevents screen readers from reading "star" or "asterisk"
-      // all screen readers will announce if a field is required thanks to the other attrs
-
       return this.getIsRequired(field) ?
         `${field.label}<span aria-hidden="true">*</span>`
         : field.label
     },
-    getValue (type, value, key) {
-      // checkboxes handle values differently from the other inputs
-      return type === "checkbox" ? this.schema[key].value : value[key]
-    },
+    // apply default value for prop showCharacterCount since 'undefined' and 'null' pass prop validation
     getShowCharacterCount (field) {
       return typeof field.showCharacterCount === "undefined" ? true : field.showCharacterCount
     },

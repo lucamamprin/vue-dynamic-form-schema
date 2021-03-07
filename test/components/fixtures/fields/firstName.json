@@ -1,0 +1,17 @@
+{
+  "firstName": {
+    "type": "text",
+    "label": "Name",
+    "autocomplete": "false",
+    "validations": {
+      "required": {
+        "params": null,
+        "message": "Name is required."
+      },
+      "personName": {
+        "params": null,
+        "message": "The name has some invalid characters."
+      }
+    }
+  }
+}

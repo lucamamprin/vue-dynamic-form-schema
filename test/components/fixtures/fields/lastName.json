@@ -1,0 +1,16 @@
+{
+  "lastName": {
+    "type": "text",
+    "label": "Last name",
+    "validations": {
+      "required": {
+        "params": null,
+        "message": "Your last name is required."
+      },
+      "personName": {
+        "params": null,
+        "message": "The last name you used is not valid."
+      }
+    }
+  }
+}

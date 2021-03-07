@@ -1,0 +1,17 @@
+{
+  "email": {
+    "type": "email",
+    "label": "Email",
+    "autocomplete": "off",
+    "validations": {
+      "required": {
+        "params": null,
+        "message": "This field is required"
+      },
+      "email": {
+        "params": null,
+        "message": "The email is not valid."
+      }
+    }
+  }
+}

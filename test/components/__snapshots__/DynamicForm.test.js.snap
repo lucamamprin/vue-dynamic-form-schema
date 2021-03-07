@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`form mounts correctly 1`] = `
+<div>
+  <div class="input floating-label">
+    <div class="position-relative"><input type="text" aria-describedby="new-user-firstName-error " name="firstName" id="new-user-firstName" min="0" minlength="0" placeholder=" " aria-labelledby="label-firstName" aria-invalid="false" aria-required="true" autocomplete="false" error="Name is required." validations="[object Object]" class=""> <label id="label-firstName" for="new-user-firstName">Name<span aria-hidden="true">*</span></label></div>
+    <!---->
+    <!---->
+  </div>
+  <div class="input floating-label">
+    <div class="position-relative"><input type="text" aria-describedby="new-user-lastName-error " name="lastName" id="new-user-lastName" min="0" minlength="0" placeholder=" " aria-labelledby="label-lastName" aria-invalid="false" aria-required="true" error="Your last name is required." validations="[object Object]" class=""> <label id="label-lastName" for="new-user-lastName">Last name<span aria-hidden="true">*</span></label></div>
+    <!---->
+    <!---->
+  </div>
+  <div class="input floating-label">
+    <div class="position-relative"><input type="email" aria-describedby="new-user-email-error " name="email" id="new-user-email" min="0" minlength="0" placeholder=" " aria-labelledby="label-email" aria-invalid="false" aria-required="true" autocomplete="off" error="This field is required" validations="[object Object]" class=""> <label id="label-email" for="new-user-email">Email<span aria-hidden="true">*</span></label></div>
+    <!---->
+    <!---->
+  </div>
+  <div class="input floating-label">
+    <div class="position-relative"><input type="password" aria-describedby="new-user-password-error new-user-password-counter" name="password" id="new-user-password" min="0" minlength="0" maxlength="20" placeholder=" " aria-labelledby="label-password" aria-invalid="false" aria-required="true" autocomplete="off" error="The password is required." validations="[object Object]" class=""> <label id="label-password" for="new-user-password">Password<span aria-hidden="true">*</span></label></div>
+    <div>
+      <!---->
+      <div class="input-character-counter">
+        <div class="text-right text-light"><span id="new-user-password-counter" class="sr-only">
+    0 characters on 20 available for Password&lt;span aria-hidden="true"&gt;&lt;/span&gt;
+  </span>
+          <p class="m-0">
+            0 / 20
+          </p>
+        </div>
+      </div>
+    </div>
+    <!---->
+  </div>
+  <div class="input floating-label">
+    <div class="position-relative"><input type="password" aria-describedby="new-user-repeatPassword-error new-user-repeatPassword-counter" name="repeatPassword" id="new-user-repeatPassword" min="0" minlength="0" maxlength="20" placeholder=" " aria-labelledby="label-repeatPassword" aria-invalid="false" aria-required="true" autocomplete="off" error="This field is required." validations="[object Object]" class=""> <label id="label-repeatPassword" for="new-user-repeatPassword">Ripeti password<span aria-hidden="true">*</span></label></div>
+    <div>
+      <!---->
+      <div class="input-character-counter">
+        <div class="text-right text-light"><span id="new-user-repeatPassword-counter" class="sr-only">
+    0 characters on 20 available for Ripeti password&lt;span aria-hidden="true"&gt;&lt;/span&gt;
+  </span>
+          <p class="m-0">
+            0 / 20
+          </p>
+        </div>
+      </div>
+    </div>
+    <!---->
+  </div>
+</div>
+`;
