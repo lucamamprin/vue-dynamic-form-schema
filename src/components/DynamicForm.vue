@@ -137,25 +137,18 @@ export default {
      * Used to get the proper component name.
      */
     getComponent (type) {
-      let component
       switch (type) {
       case "textarea":
-        component = "InputTextarea"
-        break
+        return "InputTextarea"
       case "select":
-        component = "InputSelect"
-        break
+        return "InputSelect"
       case "radio_group":
-        component = "InputRadioGroup"
-        break
+        return "InputRadioGroup"
       case "checkbox":
-        component = "InputCheckbox"
-        break
+        return "InputCheckbox"
       default:
-        component = "InputGeneric"
+        return "InputGeneric"
       }
-
-      return component
     },
     getIsRequired (field) {
       return Object.prototype.hasOwnProperty.call(field.validations, "required")
@@ -172,10 +165,6 @@ export default {
       return this.getIsRequired(field) ?
         `${field.label}<span aria-hidden="true">*</span>`
         : field.label
-    },
-    // apply default value for prop showCharacterCount since 'undefined' and 'null' pass prop validation
-    getShowCharacterCount (field) {
-      return typeof field.showCharacterCount === "undefined" ? true : field.showCharacterCount
     },
     validationParam (prop, defaultValue) {
       return typeof prop !== "undefined" ? prop.params : defaultValue
