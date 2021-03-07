@@ -99,13 +99,6 @@ export default {
     textInputs,
   ],
   props: {
-    value: {
-      type: [
-        String,
-        Number,
-      ],
-      default: "",
-    },
     resizeTextArea: {
       type: Boolean,
       default: true,

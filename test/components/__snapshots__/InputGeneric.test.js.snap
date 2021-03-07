@@ -45,9 +45,9 @@ exports[`InputGeneric prints the floating label classes if user types a value 1`
 exports[`InputGeneric show minlength and maxlength attributes and component 1`] = `
 <div class="input floating-label">
   <div class="position-relative"><input type="text" aria-describedby="firstname-describe firstname-counter" name="firstname" id="firstname" placeholder=" " aria-labelledby="label-firstname" aria-invalid="false" aria-required="true" class="" minlength="20" maxlength="50"> <label id="label-firstname" for="firstname">First name</label></div>
-  <div class="pal-row pal-no-gutters mt-2">
+  <div>
     <!---->
-    <div class="pal-col px-0">
+    <div class="input-character-counter">
       <div class="text-right text-light"><span id="firstname-counter" class="sr-only">
     0 characters on 50 available for First name
   </span>

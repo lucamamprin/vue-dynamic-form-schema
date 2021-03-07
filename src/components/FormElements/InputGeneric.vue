@@ -42,18 +42,17 @@
 
     <div
       v-if="hasCharacterCount || hasLeftColSlot"
-      class="pal-row pal-no-gutters mt-2"
     >
       <div
         v-if="hasLeftColSlot"
-        class="pal-col px-0"
+        class="input-left-slot"
       >
         <slot name="leftCol" />
       </div>
 
       <div
         v-if="hasCharacterCount"
-        class="pal-col px-0"
+        class="input-character-counter"
       >
         <max-length
           :typed-text="value"
@@ -106,12 +105,6 @@ export default {
     removeStar,
   },
   props: {
-    value: {
-      type: [
-        String, Number,
-      ],
-      default: null,
-    },
     type: {
       type: String,
       default: "text",

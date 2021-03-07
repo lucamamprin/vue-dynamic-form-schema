@@ -1,4 +1,3 @@
-
 import Vue from "vue"
 import { shallowMount } from "@vue/test-utils"
 import ErrorMessage from "../../src/components/FormElements/Atoms/ErrorMessage.vue"

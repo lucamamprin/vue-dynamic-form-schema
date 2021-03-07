@@ -1,5 +1,11 @@
 export default {
   props: {
+    value: {
+      type: [
+        String, Number,
+      ],
+      default: "",
+    },
     floatedLabel: {
       type: Boolean,
       default: false,
