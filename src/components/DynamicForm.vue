@@ -55,10 +55,6 @@ export default {
       type: Object,
       required: true,
     },
-    value: {
-      type: Object,
-      default: () => {},
-    },
     // A unique string that works as ID for the form.
     // This is useful in case you need two identical forms that have different data (eg: shipping and billing address).
     nameSpace: {
@@ -174,7 +170,6 @@ export default {
       this.$v.form[key].$touch()
 
       this.$emit("input", {
-        ...this.value,
         [key]: value,
       })
     },
